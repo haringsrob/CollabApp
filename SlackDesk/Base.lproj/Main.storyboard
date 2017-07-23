@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13156.6"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
+    </dependencies>
+    <scenes>
+        <!--Application-->
+        <scene sceneID="JPo-4y-FX3">
+            <objects>
+                <application id="hnw-xV-0zn" sceneMemberID="viewController">
+                    <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
+                        <items>
+                            <menuItem title="SlackDesk" id="1Xt-HY-uBw">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="SlackDesk" systemMenu="apple" id="uQy-DD-JDr">
+                                    <items>
+                                        <menuItem title="About SlackDesk" id="5kV-Vb-QxS">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
+                                            <connections>
+                                                <segue destination="qfC-dt-yKw" kind="modal" id="KiV-Y8-BVT"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
+                                        <menuItem title="Services" id="NMo-om-nkz">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
+                                        <menuItem title="Hide SlackDesk" keyEquivalent="h" id="Olw-nP-bQN">
+                                            <connections>
+                                                <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Hide Others" keyEquivalent="h" id="Vdr-fp-XzO">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="hideOtherApplications:" target="Ady-hI-5gd" id="VT4-aY-XCT"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Show All" id="Kd2-mp-pUS">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="unhideAllApplications:" target="Ady-hI-5gd" id="Dhg-Le-xox"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
+                                        <menuItem title="Quit SlackDesk" keyEquivalent="q" id="4sb-4s-VLi">
+                                            <connections>
+                                                <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Edit" id="cNq-lY-cJ5">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Edit" id="KLX-Ie-Xkg">
+                                    <items>
+                                        <menuItem title="Cut" keyEquivalent="x" id="mmb-c9-xYR">
+                                            <connections>
+                                                <action selector="cut:" target="Ady-hI-5gd" id="ESh-88-APg"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Copy" keyEquivalent="c" id="mew-Th-vwV">
+                                            <connections>
+                                                <action selector="copy:" target="Ady-hI-5gd" id="vsQ-bh-8pi"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Paste" keyEquivalent="v" id="X4c-rQ-xy7">
+                                            <connections>
+                                                <action selector="paste:" target="Ady-hI-5gd" id="bV1-yF-vFQ"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Delete" id="Uqs-1Y-hwS">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="delete:" target="Ady-hI-5gd" id="4NL-1g-PBg"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Select All" keyEquivalent="a" id="dD1-Pb-nLs">
+                                            <connections>
+                                                <action selector="selectAll:" target="Ady-hI-5gd" id="WLr-e4-qMH"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
+                    </connections>
+                </application>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="SlackDesk" customModuleProvider="target"/>
+                <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="-713"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="qXp-Ph-ro9">
+            <objects>
+                <windowController id="qfC-dt-yKw" sceneMemberID="viewController">
+                    <window key="window" title="SlackDesk" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="RzU-RW-f3t">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="245" y="301" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <connections>
+                            <outlet property="delegate" destination="qfC-dt-yKw" id="cs4-81-ngt"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="abT-uA-NXQ" kind="relationship" relationship="window.shadowedContentViewController" id="Nnx-Ca-dFi"/>
+                    </connections>
+                </windowController>
+                <customObject id="gFq-H5-1Cl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="635" y="-706"/>
+        </scene>
+        <!--Settings Controller-->
+        <scene sceneID="t94-6z-mhr">
+            <objects>
+                <viewController id="abT-uA-NXQ" customClass="SettingsController" customModule="SlackDesk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="55D-dx-JCP">
+                        <rect key="frame" x="0.0" y="0.0" width="800" height="343"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lao-Un-kWH">
+                                <rect key="frame" x="0.0" y="64" width="800" height="279"/>
+                                <clipView key="contentView" id="q5i-H2-St9">
+                                    <rect key="frame" x="1" y="0.0" width="798" height="278"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="WMG-Se-KbY" viewBased="YES" id="qPL-Gn-cRd">
+                                            <rect key="frame" x="0.0" y="0.0" width="798" height="255"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <size key="intercellSpacing" width="3" height="2"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                            <tableColumns>
+                                                <tableColumn identifier="connectionName" width="116" minWidth="40" maxWidth="1000" id="QPM-1t-7mA">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Connection name">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="dfd-Hc-FPm">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView identifier="connectionName" id="yNL-Lh-ttz">
+                                                            <rect key="frame" x="1" y="1" width="116" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="2nx-oW-xyO">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="116" height="17"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Table View Cell" id="IhC-jN-OjU">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="2nx-oW-xyO" firstAttribute="centerX" secondItem="yNL-Lh-ttz" secondAttribute="centerX" id="6Gy-jD-VYq"/>
+                                                                <constraint firstItem="2nx-oW-xyO" firstAttribute="centerY" secondItem="yNL-Lh-ttz" secondAttribute="centerY" id="KAi-4P-ksb"/>
+                                                                <constraint firstItem="2nx-oW-xyO" firstAttribute="leading" secondItem="yNL-Lh-ttz" secondAttribute="leading" constant="2" id="dSd-Yl-Zfb"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="textField" destination="2nx-oW-xyO" id="BBf-r8-ULW"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                                <tableColumn width="676" minWidth="40" maxWidth="1000" id="xbj-9s-1ac">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Connection token">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="egv-q6-KxH">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="key" ascending="NO"/>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView identifier="connectionToken" id="vYo-CU-LB4">
+                                                            <rect key="frame" x="120" y="1" width="676" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="z7A-qy-SGZ">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="676" height="17"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Table View Cell" id="rUr-OF-dbq">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="z7A-qy-SGZ" firstAttribute="centerX" secondItem="vYo-CU-LB4" secondAttribute="centerX" id="0zf-Gu-FX6"/>
+                                                                <constraint firstItem="z7A-qy-SGZ" firstAttribute="leading" secondItem="vYo-CU-LB4" secondAttribute="leading" constant="2" id="Poc-3o-rIe"/>
+                                                                <constraint firstItem="z7A-qy-SGZ" firstAttribute="centerY" secondItem="vYo-CU-LB4" secondAttribute="centerY" id="lwQ-SC-gr2"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="textField" destination="z7A-qy-SGZ" id="hE3-S1-b4j"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                            </tableColumns>
+                                        </tableView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="O3H-1B-Ia7">
+                                    <rect key="frame" x="1" y="32" width="46" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="JZD-7a-Hfd">
+                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <tableHeaderView key="headerView" id="WMG-Se-KbY">
+                                    <rect key="frame" x="0.0" y="0.0" width="798" height="23"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableHeaderView>
+                            </scrollView>
+                            <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sBr-dl-aUR">
+                                <rect key="frame" x="0.0" y="40" width="800" height="23"/>
+                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="smallSquare" trackingMode="momentaryAccelerator" id="lNb-hN-bQm">
+                                    <font key="font" metaFont="system"/>
+                                    <segments>
+                                        <segment label="Add connection" image="NSAddTemplate"/>
+                                        <segment label="Remove connection" image="NSRemoveTemplate"/>
+                                    </segments>
+                                </segmentedCell>
+                                <connections>
+                                    <action selector="TableActionControl:" target="abT-uA-NXQ" id="nCA-WF-9iZ"/>
+                                </connections>
+                            </segmentedControl>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="l9o-t6-vg2">
+                                <rect key="frame" x="649" y="3" width="147" height="32"/>
+                                <buttonCell key="cell" type="push" title="Save connections" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="s9z-VZ-CJg">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="SaveSettingsButton:" target="abT-uA-NXQ" id="4WK-IW-yMr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="l9o-t6-vg2" secondAttribute="bottom" constant="10" id="6Gf-me-q3R"/>
+                            <constraint firstItem="sBr-dl-aUR" firstAttribute="trailing" secondItem="lao-Un-kWH" secondAttribute="trailing" id="7D0-wf-Bjq"/>
+                            <constraint firstItem="lao-Un-kWH" firstAttribute="top" secondItem="55D-dx-JCP" secondAttribute="top" id="7cW-h9-dSa"/>
+                            <constraint firstAttribute="trailing" secondItem="l9o-t6-vg2" secondAttribute="trailing" constant="10" id="9S8-3q-f0x"/>
+                            <constraint firstItem="l9o-t6-vg2" firstAttribute="top" secondItem="sBr-dl-aUR" secondAttribute="bottom" constant="10" id="J8v-MP-tRJ"/>
+                            <constraint firstItem="sBr-dl-aUR" firstAttribute="leading" secondItem="lao-Un-kWH" secondAttribute="leading" id="OcL-Gb-gvU"/>
+                            <constraint firstAttribute="trailing" secondItem="sBr-dl-aUR" secondAttribute="trailing" id="OuZ-FT-02U"/>
+                            <constraint firstItem="sBr-dl-aUR" firstAttribute="leading" secondItem="55D-dx-JCP" secondAttribute="leading" id="OwJ-Nu-5E0"/>
+                            <constraint firstItem="sBr-dl-aUR" firstAttribute="top" secondItem="lao-Un-kWH" secondAttribute="bottom" constant="2" id="fAR-O6-MXc"/>
+                            <constraint firstItem="l9o-t6-vg2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="55D-dx-JCP" secondAttribute="leading" constant="20" symbolic="YES" id="r2y-nf-zKo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="SettingsTableView" destination="qPL-Gn-cRd" id="umV-rK-p2q"/>
+                    </connections>
+                </viewController>
+                <customObject id="hs3-mC-yI9" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1345" y="-713"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="R2V-B0-nI4">
+            <objects>
+                <windowController showSeguePresentationStyle="single" id="B8D-0N-5wS" customClass="SlackWindowController" customModule="SlackDesk" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="CollabApp" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" deferred="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" tabbingMode="disallowed" id="IQv-IB-iLA">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES" fullSizeContentView="YES"/>
+                        <rect key="contentRect" x="568" y="429" width="750" height="500"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <connections>
+                            <outlet property="delegate" destination="B8D-0N-5wS" id="afx-IG-qgg"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
+                    </connections>
+                </windowController>
+                <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="-36"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="hIz-AP-VOD">
+            <objects>
+                <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <viewController showSeguePresentationStyle="single" id="XfG-lQ-9wD" customClass="ViewController" customModule="SlackDesk" customModuleProvider="target" sceneMemberID="viewController">
+                    <stackView key="view" distribution="fill" orientation="vertical" alignment="centerX" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" id="5K6-DO-L9W">
+                        <rect key="frame" x="0.0" y="0.0" width="875" height="566"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <stackView distribution="fillEqually" orientation="horizontal" alignment="top" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ya-U3-4Z9">
+                                <rect key="frame" x="75" y="536" width="800" height="30"/>
+                                <subviews>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="k59-78-8kz" customClass="TabsControl" customModule="KPCTabsControl">
+                                        <rect key="frame" x="0.0" y="0.0" width="770" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="yB0-OB-jRk"/>
+                                        </constraints>
+                                    </customView>
+                                    <imageView translatesAutoresizingMaskIntoConstraints="NO" id="Sa0-Lw-F1G">
+                                        <rect key="frame" x="770" y="0.0" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="1AJ-jx-19E"/>
+                                            <constraint firstAttribute="height" constant="30" id="N5x-9R-ayC"/>
+                                        </constraints>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="NSFlowViewTemplate" id="yJB-KR-Peg"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="k59-78-8kz" firstAttribute="leading" secondItem="2ya-U3-4Z9" secondAttribute="leading" id="JNB-N9-kMe"/>
+                                    <constraint firstAttribute="bottom" secondItem="k59-78-8kz" secondAttribute="bottom" id="W6s-n2-VGn"/>
+                                    <constraint firstAttribute="bottom" secondItem="Sa0-Lw-F1G" secondAttribute="bottom" id="cQU-Gg-wBT"/>
+                                    <constraint firstItem="k59-78-8kz" firstAttribute="top" secondItem="2ya-U3-4Z9" secondAttribute="top" id="kPb-pZ-wR2"/>
+                                    <constraint firstItem="Sa0-Lw-F1G" firstAttribute="top" secondItem="2ya-U3-4Z9" secondAttribute="top" id="w9r-sw-a2h"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                            <tabView drawsBackground="NO" type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="kcO-je-hCf">
+                                <rect key="frame" x="0.0" y="0.0" width="875" height="536"/>
+                                <font key="font" metaFont="system"/>
+                                <tabViewItems/>
+                            </tabView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="kcO-je-hCf" secondAttribute="bottom" id="2gw-Rz-yMc"/>
+                            <constraint firstAttribute="trailing" secondItem="2ya-U3-4Z9" secondAttribute="trailing" id="F07-UP-fLj"/>
+                            <constraint firstItem="kcO-je-hCf" firstAttribute="top" secondItem="2ya-U3-4Z9" secondAttribute="bottom" id="GZd-ZV-wpS"/>
+                            <constraint firstItem="2ya-U3-4Z9" firstAttribute="leading" secondItem="5K6-DO-L9W" secondAttribute="leading" constant="75" id="M65-lS-Nfj"/>
+                            <constraint firstItem="kcO-je-hCf" firstAttribute="leading" secondItem="5K6-DO-L9W" secondAttribute="leading" id="afP-VS-gKm"/>
+                            <constraint firstItem="2ya-U3-4Z9" firstAttribute="top" secondItem="5K6-DO-L9W" secondAttribute="top" id="mVj-ix-qxH"/>
+                            <constraint firstAttribute="trailing" secondItem="kcO-je-hCf" secondAttribute="trailing" id="xLM-aJ-PnF"/>
+                        </constraints>
+                        <visibilityPriorities>
+                            <integer value="1000"/>
+                            <integer value="1000"/>
+                        </visibilityPriorities>
+                        <customSpacing>
+                            <real value="3.4028234663852886e+38"/>
+                            <real value="3.4028234663852886e+38"/>
+                        </customSpacing>
+                    </stackView>
+                    <connections>
+                        <outlet property="AvailableTabs" destination="kcO-je-hCf" id="IJ5-4f-qKd"/>
+                        <outlet property="Tabs" destination="k59-78-8kz" id="dXr-oU-rdV"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="75" y="865"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSFlowViewTemplate" width="18" height="10"/>
+        <image name="NSRemoveTemplate" width="11" height="11"/>
+    </resources>
+</document>

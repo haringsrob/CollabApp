@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13156.6"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="MessageListItem" customModule="SlackDesk" customModuleProvider="target">
+            <connections>
+                <outlet property="Message" destination="67b-LW-qrm" id="2Hh-Bc-jlh"/>
+                <outlet property="UserName" destination="3HD-w6-ivJ" id="Er7-h4-ju0"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="401" height="34"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3HD-w6-ivJ">
+                    <rect key="frame" x="8" y="17" width="395" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="User" id="mdy-WM-RRi">
+                        <font key="font" metaFont="systemBold"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField identifier="Message" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="67b-LW-qrm">
+                    <rect key="frame" x="8" y="0.0" width="395" height="17"/>
+                    <textFieldCell key="cell" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Message" allowsEditingTextAttributes="YES" id="Kl4-ff-OT5">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="67b-LW-qrm" firstAttribute="top" secondItem="3HD-w6-ivJ" secondAttribute="bottom" id="2Vg-aA-Tkg"/>
+                <constraint firstItem="3HD-w6-ivJ" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="5Q2-r0-2yl"/>
+                <constraint firstAttribute="bottom" secondItem="67b-LW-qrm" secondAttribute="bottom" id="61D-Tp-Vnv"/>
+                <constraint firstAttribute="trailing" secondItem="67b-LW-qrm" secondAttribute="trailing" id="8TD-Gd-PoJ"/>
+                <constraint firstAttribute="trailing" secondItem="3HD-w6-ivJ" secondAttribute="trailing" id="Rfe-TG-N87"/>
+                <constraint firstItem="3HD-w6-ivJ" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="10" id="am8-tq-ZNa"/>
+                <constraint firstItem="67b-LW-qrm" firstAttribute="top" secondItem="3HD-w6-ivJ" secondAttribute="bottom" id="sem-0t-AsS"/>
+                <constraint firstItem="67b-LW-qrm" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="10" id="uEr-BW-21D"/>
+            </constraints>
+            <point key="canvasLocation" x="93.5" y="178.5"/>
+        </customView>
+    </objects>
+</document>

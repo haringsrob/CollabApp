@@ -1,0 +1,45 @@
+PODS:
+  - Alamofire (4.5.0)
+  - CrossroadRegex (1.0.0)
+  - Down (0.3.4)
+  - Emoji-swift (0.1.0)
+  - KPCTabsControl (3.0.2)
+  - Observable-Swift (0.7.0)
+  - ReactiveCocoa (5.0.4):
+    - ReactiveSwift (~> 1.1)
+  - ReactiveSwift (1.1.5):
+    - Result (~> 3.2)
+  - Result (3.2.3)
+  - Starscream (2.0.4)
+  - SwiftHEXColors (1.1.0)
+  - SwiftyJSON (3.1.4)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.4)
+  - CrossroadRegex
+  - Down
+  - Emoji-swift
+  - KPCTabsControl
+  - Observable-Swift
+  - ReactiveCocoa (~> 5.0.0)
+  - Starscream (~> 2.0.3)
+  - SwiftHEXColors
+  - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  CrossroadRegex: f9eec8e064fb467cdfc2b2d4553b529ec06f0073
+  Down: 3f35b61e51a603df3e9e7e0289b15752e72f82e6
+  Emoji-swift: 20010383183f4d85e6e5a2b9642b96ebdb4f06ae
+  KPCTabsControl: 29d008fb11dd7c416a49b71a85c92c4fa5a5d994
+  Observable-Swift: 8725f501976e49db368a2cd37277d17a9a51a8aa
+  ReactiveCocoa: b31e754d15937811ede648fc83cd68f5de70a3d4
+  ReactiveSwift: 3fea31f8fc49f112d2dc613282c5d395c4d167bb
+  Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
+  Starscream: df5974ee928b157c8eda8af8de7c620276b7dfcc
+  SwiftHEXColors: 8f7e364df7929e32cff9f9eeb044bb215167d6be
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+
+PODFILE CHECKSUM: baf3734e0cba8b40e0cd4e9ae46f773284851837
+
+COCOAPODS: 1.2.1
