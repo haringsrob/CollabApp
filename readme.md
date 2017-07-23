@@ -55,7 +55,7 @@ If you want a full featured Slack client, you should use the official client.
 
 ## Usage
 
-Download the [latest release](slackDesk.app) and copy it to your applications
+Download the [latest release](SlackDesk.app) and copy it to your applications
 folder.
 
 Then go and create [legacy tokens](https://api.slack.com/custom-integrations/legacy-tokens)
