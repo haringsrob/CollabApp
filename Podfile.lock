@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.5.0)
+  - Alamofire (4.7.3)
   - CrossroadRegex (1.0.0)
   - Down (0.3.4)
   - Emoji-swift (0.1.0)
@@ -26,8 +26,23 @@ DEPENDENCIES:
   - SwiftHEXColors
   - SwiftyJSON
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - CrossroadRegex
+    - Down
+    - Emoji-swift
+    - KPCTabsControl
+    - Observable-Swift
+    - ReactiveCocoa
+    - ReactiveSwift
+    - Result
+    - Starscream
+    - SwiftHEXColors
+    - SwiftyJSON
+
 SPEC CHECKSUMS:
-  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   CrossroadRegex: f9eec8e064fb467cdfc2b2d4553b529ec06f0073
   Down: 3f35b61e51a603df3e9e7e0289b15752e72f82e6
   Emoji-swift: 20010383183f4d85e6e5a2b9642b96ebdb4f06ae
@@ -42,4 +57,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: baf3734e0cba8b40e0cd4e9ae46f773284851837
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.5.3

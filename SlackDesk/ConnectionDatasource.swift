@@ -15,7 +15,9 @@ class ConnectionDatasource: NSObject, NSTableViewDataSource, NSTableViewDelegate
     
     override init() {
         let defaults = UserDefaults.standard
-        self.connections = defaults.object(forKey: "userSettings") as! NSDictionary
+        if (defaults.object(forKey: "userSettings") != nil) {
+            self.connections = defaults.object(forKey: "userSettings") as! NSDictionary
+        }
 
         for connection in connections {
             connectionsArray.append(ConnectionToken(name: connection.key as! String, token: connection.value as! String))
