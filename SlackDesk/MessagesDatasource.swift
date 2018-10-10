@@ -81,9 +81,11 @@ class MessagesDatasource: NSObject, NSTableViewDataSource, NSTableViewDelegate  
         return message["user"].string!
     }
 
-    
+    /**
+     * @Depricated
+     */
     private func getMessageTextForMessage(message: JSON) -> String {
-        return message["text"].string!
+        return MessageBuilderHelpers.getTextForMessage(JsonMessage: message);
     }
     
     public func insertMessageAtStartOfList(messageObject: Message) {

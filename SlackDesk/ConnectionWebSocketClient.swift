@@ -77,7 +77,7 @@ class ConnectionWebSocketClient: WebSocketDelegate {
                         
                         if !self.messageTSisPresentInChannel(ts: json["ts"].string!, channel: channel) {
                             if json["user"].string != nil {
-                                message = Message(message: json["text"].string!, userId: json["user"].string!, ts: json["ts"].string!, connection: self.connection)
+                                message = Message(message: MessageBuilderHelpers.getTextForMessage(JsonMessage: json), userId: json["user"].string!, ts: json["ts"].string!, connection: self.connection)
                             }
                             else if json["bot_id"].string != nil {
                                 message = Message(message: json["text"].string!, userId: json["bot_id"].string!, ts: json["ts"].string!, connection: self.connection)
@@ -97,7 +97,9 @@ class ConnectionWebSocketClient: WebSocketDelegate {
                         
                         // Only add the message if it is populated.
                         if !channel.messageDataSource.messageStore.messages.value.isEmpty {
-                            channel.messageDataSource.messageStore.messages.value.append(message)
+                            if (message != nil) {
+                                channel.messageDataSource.messageStore.messages.value.append(message)
+                            }
                         }
                     }
                 break

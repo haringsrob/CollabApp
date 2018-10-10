@@ -38,6 +38,10 @@ class Message {
         self.connection = connection
     }
     
+    public func append(message: String) {
+        self.message = self.message + " " + message;
+    }
+    
     public func getTextView() -> String {
         return (self.connection.users?.findUserForId(id: self.userId).name)! + ": " + self.message
     }

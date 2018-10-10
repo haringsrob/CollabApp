@@ -14,6 +14,7 @@
 		D429AC061F16951900A20DDA /* MessageListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D429AC041F16951900A20DDA /* MessageListItem.swift */; };
 		D429AC071F16951900A20DDA /* MessageListItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = D429AC051F16951900A20DDA /* MessageListItem.xib */; };
 		D432BC441F23514B0096E463 /* SlackWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D432BC431F23514B0096E463 /* SlackWindowController.swift */; };
+		D445863F216E07E20023E57F /* MessageBuilderHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D445863E216E07E20023E57F /* MessageBuilderHelpers.swift */; };
 		D485878F1F1AA20100CE2C5A /* ConnectionWebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D485878E1F1AA20100CE2C5A /* ConnectionWebSocketClient.swift */; };
 		D49DBE881F0EDEE400EA5F55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49DBE871F0EDEE400EA5F55 /* AppDelegate.swift */; };
 		D49DBE8A1F0EDEE400EA5F55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49DBE891F0EDEE400EA5F55 /* ViewController.swift */; };
@@ -42,6 +43,7 @@
 		D429AC041F16951900A20DDA /* MessageListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageListItem.swift; sourceTree = "<group>"; };
 		D429AC051F16951900A20DDA /* MessageListItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageListItem.xib; sourceTree = "<group>"; };
 		D432BC431F23514B0096E463 /* SlackWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackWindowController.swift; sourceTree = "<group>"; };
+		D445863E216E07E20023E57F /* MessageBuilderHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBuilderHelpers.swift; sourceTree = "<group>"; };
 		D485878E1F1AA20100CE2C5A /* ConnectionWebSocketClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionWebSocketClient.swift; sourceTree = "<group>"; };
 		D49DBE841F0EDEE400EA5F55 /* SlackDesk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlackDesk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49DBE871F0EDEE400EA5F55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				D49DBE901F0EDEE400EA5F55 /* Info.plist */,
 				D422F3681F1F35DD00B6417A /* SettingsController.swift */,
 				D432BC431F23514B0096E463 /* SlackWindowController.swift */,
+				D445863E216E07E20023E57F /* MessageBuilderHelpers.swift */,
 			);
 			path = SlackDesk;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				D432BC441F23514B0096E463 /* SlackWindowController.swift in Sources */,
 				D4F43FAF1F0FB37700342308 /* ChannelDatasource.swift in Sources */,
 				D49DBE9B1F0EE4E600EA5F55 /* ConnectionSplitView.swift in Sources */,
+				D445863F216E07E20023E57F /* MessageBuilderHelpers.swift in Sources */,
 				D4F43FBD1F0FE01F00342308 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
