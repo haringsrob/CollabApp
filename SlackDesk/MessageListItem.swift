@@ -38,7 +38,6 @@ class MessageListItem: NSViewController {
     
     public func updateSize() {
         self.Message.sizeToFit()
-        
     }
     
     /**

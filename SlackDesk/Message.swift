@@ -32,8 +32,14 @@ class Message {
             return nil
         })!
         
-        self.messageAttributeString = try! Down(markdownString: replaced.emojiUnescapedString).toAttributedString()
+        // Trim the last linebreak.
+        let updatableMessage:NSMutableAttributedString = NSMutableAttributedString(attributedString: try! Down(markdownString: replaced.emojiUnescapedString).toAttributedString())
+        if (updatableMessage.string.last == "\n") {
+            updatableMessage.deleteCharacters(in: NSRange(location: updatableMessage.length-1, length: 1))
+        }
         
+        self.messageAttributeString = updatableMessage.copy() as! NSAttributedString;
+
         self.userId = userId
         self.connection = connection
     }
