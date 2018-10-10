@@ -73,6 +73,10 @@ class ViewController: NSViewController, TabsControlDataSource, TabsControlDelega
                 }
             }
         }
+        
+        if (connectionDataSource.connectionsArray.isEmpty) {
+            self.showSettings();
+        }
     }
     
     func initalizeConnectionSplitViewForConnection(connection: Connection) -> ConnectionSplitView {
@@ -99,6 +103,15 @@ class ViewController: NSViewController, TabsControlDataSource, TabsControlDelega
     
     func tabsControl(_ control: TabsControl, canReorderItem item: AnyObject) -> Bool {
         return false
+    }
+    
+    func showSettings() -> Void {
+        let alert = NSAlert()
+        alert.messageText = "No connections were found."
+        alert.informativeText = "Press CMD+, or open settings from the menu to add connections."
+        alert.alertStyle = NSAlertStyle.warning
+        alert.addButton(withTitle: "OK")
+        alert.runModal()
     }
 
 
