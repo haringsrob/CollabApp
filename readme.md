@@ -37,13 +37,14 @@ Pull requests and bug reports are welcome!
 - Emoji rendering (most of them)
 - Live adding of channels via other clients
 - Notification of new messages (without control)
+- Links to files
 
 __What does not work__
 
 Many things, but that is the point. I will try to add more features but I will
 add them one by one:
 
-- Image viewing
+- Inline Image viewing (File links are already present)
 - Drag and drop image uploading
 - Snippet viewing
 - Channel creation
