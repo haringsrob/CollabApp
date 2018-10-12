@@ -5,7 +5,12 @@ import SwiftyJSON
 
 class SlackClientTests: XCTestCase {
     
-    private var client:SlackClient = SlackClient(apiKey: "***REMOVED***");
+    private var client:SlackClient = SlackClient(apiKey: "apiKey");
+    
+    func testApiKeyConfig() -> Void {
+        client.setEndpoint("http://test.be")
+        XCTAssertEqual(client.endpoint, "http://test.be")
+    }
     
     func testConversationList() -> Void {
         let body = [

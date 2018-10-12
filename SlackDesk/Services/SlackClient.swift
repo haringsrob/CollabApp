@@ -18,6 +18,17 @@ class SlackClient {
         self.endpoint = endpoint;
     }
     
+    public func usersList(completion: @escaping (JSON, Error?) -> Void) {
+        self.getRequest(method: "users.list").responseJSON { response in
+                switch response.result {
+                case .success:
+                    completion(JSON(response.result.value!)["members"],  nil)
+                case .failure(let error):
+                    completion(JSON("{}"), error)
+                }
+        }
+    }
+    
     public func conversationsList(completion: @escaping (JSON, Error?) -> Void) {
         self.getRequest(method: "conversations.list", parameters: [
             "types": "public_channel,private_channel,mpim,im",
@@ -25,10 +36,24 @@ class SlackClient {
         ]).responseJSON { response in
             switch response.result {
                 case .success:
-                    completion(JSON(response.result.value!),  nil)
+                    completion(JSON(response.result.value!)["channels"],  nil)
                 case .failure(let error):
                     completion(JSON("{}"), error)
             }
+        }
+    }
+    
+    public func conversationsHistory(channelId: String, completion: @escaping(JSON, Error?) -> Void) {
+        self.getRequest(method: "conversations.history", parameters: [
+            "channel": channelId,
+            "limit": 1000,
+            ]).responseJSON { response in
+                switch response.result {
+                case .success:
+                    completion(JSON(response.result.value!)["messages"],  nil)
+                case .failure(let error):
+                    completion(JSON("{}"), error)
+                }
         }
     }
     

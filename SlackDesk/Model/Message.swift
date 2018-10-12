@@ -3,8 +3,6 @@ import Foundation
 class Message: MessageProtocol {
     
     private var body:String = "";
-    private var channelId:String = "";
-    private var messageId:String = "";
     private var timeStamp:String = "";
     private var userId:String = "";
 
@@ -14,22 +12,6 @@ class Message: MessageProtocol {
     
     public func getBody() -> String {
         return self.body;
-    }
-
-    public func setChannelId(_ channelId: String) -> Void {
-        self.channelId = channelId;
-    }
-
-    public func getChannelId() -> String {
-        return self.channelId;
-    }
-
-    public func setMessageId(_ messageId: String) -> Void {
-        self.messageId = messageId;
-    }
-
-    public func getMessageID() -> String {
-        return self.messageId;
     }
 
     public func setTimeStamp(_ timeStamp: String) -> Void {

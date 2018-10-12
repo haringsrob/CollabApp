@@ -5,7 +5,8 @@ class Connection: ConnectionProtocol {
     private var name:String = "";
     private var key:String = "";
     private var channels = [Channel]()
-    
+    private var users = [User]()
+
     public func setName(_ name: String) -> Void {
         self.name = name;
     }
@@ -28,5 +29,13 @@ class Connection: ConnectionProtocol {
     
     func getChannels() -> [Channel] {
         return self.channels
+    }
+    
+    func addUser(_ user: User) {
+        self.users.append(user)
+    }
+    
+    func getUsers() -> [User] {
+        return self.users
     }
 }

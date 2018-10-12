@@ -30,6 +30,9 @@
 		D48B898F21712F41004AD629 /* MessageModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B898721712F40004AD629 /* MessageModelTests.swift */; };
 		D48B899021712F41004AD629 /* ConnectionModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B898821712F40004AD629 /* ConnectionModelTests.swift */; };
 		D48B899121712F41004AD629 /* UserModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B898921712F40004AD629 /* UserModelTests.swift */; };
+		D48B899521713A4F004AD629 /* UserListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B899421713A4F004AD629 /* UserListController.swift */; };
+		D48B899721713BAB004AD629 /* UserListControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B899621713BAB004AD629 /* UserListControllerTests.swift */; };
+		D48B8999217143E9004AD629 /* ClientAccesingControllerBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B8998217143E9004AD629 /* ClientAccesingControllerBase.swift */; };
 		D4BFE71921712D1A001945E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BFE71821712D1A001945E2 /* AppDelegate.swift */; };
 		D4BFE71B21712D1A001945E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BFE71A21712D1A001945E2 /* ViewController.swift */; };
 		D4BFE71D21712D1B001945E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4BFE71C21712D1B001945E2 /* Assets.xcassets */; };
@@ -83,6 +86,9 @@
 		D48B898721712F40004AD629 /* MessageModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageModelTests.swift; sourceTree = "<group>"; };
 		D48B898821712F40004AD629 /* ConnectionModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionModelTests.swift; sourceTree = "<group>"; };
 		D48B898921712F40004AD629 /* UserModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModelTests.swift; sourceTree = "<group>"; };
+		D48B899421713A4F004AD629 /* UserListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListController.swift; sourceTree = "<group>"; };
+		D48B899621713BAB004AD629 /* UserListControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListControllerTests.swift; sourceTree = "<group>"; };
+		D48B8998217143E9004AD629 /* ClientAccesingControllerBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientAccesingControllerBase.swift; sourceTree = "<group>"; };
 		D4BFE71521712D1A001945E2 /* SlackDesk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlackDesk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BFE71821712D1A001945E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4BFE71A21712D1A001945E2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +159,8 @@
 			isa = PBXGroup;
 			children = (
 				D48B896421712F27004AD629 /* ChannelController.swift */,
+				D48B899421713A4F004AD629 /* UserListController.swift */,
+				D48B8998217143E9004AD629 /* ClientAccesingControllerBase.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -202,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				D48B898221712F40004AD629 /* ChannelControllerTests.swift */,
+				D48B899621713BAB004AD629 /* UserListControllerTests.swift */,
 			);
 			path = ControllerTests;
 			sourceTree = "<group>";
@@ -516,7 +525,9 @@
 				D48B897A21712F35004AD629 /* baseIdNameModelProtocol.swift in Sources */,
 				D48B897B21712F35004AD629 /* channelProtocol.swift in Sources */,
 				D48B897821712F35004AD629 /* baseIdNameModel.swift in Sources */,
+				D48B899521713A4F004AD629 /* UserListController.swift in Sources */,
 				D4BFE71921712D1A001945E2 /* AppDelegate.swift in Sources */,
+				D48B8999217143E9004AD629 /* ClientAccesingControllerBase.swift in Sources */,
 				D48B897521712F35004AD629 /* Message.swift in Sources */,
 				D48B897C21712F35004AD629 /* MessageProtocol.swift in Sources */,
 				D48B896521712F27004AD629 /* ChannelController.swift in Sources */,
@@ -539,6 +550,7 @@
 				D48B898A21712F41004AD629 /* SlackClientTests.swift in Sources */,
 				D48B898B21712F41004AD629 /* ChannelControllerTests.swift in Sources */,
 				D48B898C21712F41004AD629 /* WebsocketMockTests.swift in Sources */,
+				D48B899721713BAB004AD629 /* UserListControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

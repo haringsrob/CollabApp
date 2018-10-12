@@ -9,12 +9,6 @@ class MessageModelTests: XCTestCase {
         message.setBody("test")
         XCTAssertEqual("test", message.getBody())
 
-        message.setChannelId("123")
-        XCTAssertEqual("123", message.getChannelId())
-
-        message.setMessageId("1234")
-        XCTAssertEqual("1234", message.getMessageID())
-
         message.setUserId("FA113")
         XCTAssertEqual("FA113", message.getUserId())
 
