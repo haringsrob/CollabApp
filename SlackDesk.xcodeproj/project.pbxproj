@@ -33,6 +33,8 @@
 		D48B899521713A4F004AD629 /* UserListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B899421713A4F004AD629 /* UserListController.swift */; };
 		D48B899721713BAB004AD629 /* UserListControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B899621713BAB004AD629 /* UserListControllerTests.swift */; };
 		D48B8999217143E9004AD629 /* ClientAccesingControllerBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B8998217143E9004AD629 /* ClientAccesingControllerBase.swift */; };
+		D48B899B217146DA004AD629 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B899A217146DA004AD629 /* SettingsController.swift */; };
+		D48B899D21714A47004AD629 /* SettingsControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B899C21714A47004AD629 /* SettingsControllerTests.swift */; };
 		D4BFE71921712D1A001945E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BFE71821712D1A001945E2 /* AppDelegate.swift */; };
 		D4BFE71B21712D1A001945E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BFE71A21712D1A001945E2 /* ViewController.swift */; };
 		D4BFE71D21712D1B001945E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4BFE71C21712D1B001945E2 /* Assets.xcassets */; };
@@ -89,6 +91,8 @@
 		D48B899421713A4F004AD629 /* UserListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListController.swift; sourceTree = "<group>"; };
 		D48B899621713BAB004AD629 /* UserListControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListControllerTests.swift; sourceTree = "<group>"; };
 		D48B8998217143E9004AD629 /* ClientAccesingControllerBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientAccesingControllerBase.swift; sourceTree = "<group>"; };
+		D48B899A217146DA004AD629 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		D48B899C21714A47004AD629 /* SettingsControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsControllerTests.swift; sourceTree = "<group>"; };
 		D4BFE71521712D1A001945E2 /* SlackDesk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlackDesk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BFE71821712D1A001945E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4BFE71A21712D1A001945E2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 				D48B896421712F27004AD629 /* ChannelController.swift */,
 				D48B899421713A4F004AD629 /* UserListController.swift */,
 				D48B8998217143E9004AD629 /* ClientAccesingControllerBase.swift */,
+				D48B899A217146DA004AD629 /* SettingsController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -211,6 +216,7 @@
 			children = (
 				D48B898221712F40004AD629 /* ChannelControllerTests.swift */,
 				D48B899621713BAB004AD629 /* UserListControllerTests.swift */,
+				D48B899C21714A47004AD629 /* SettingsControllerTests.swift */,
 			);
 			path = ControllerTests;
 			sourceTree = "<group>";
@@ -522,6 +528,7 @@
 				D4BFE71B21712D1A001945E2 /* ViewController.swift in Sources */,
 				D48B897E21712F35004AD629 /* SlackClient.swift in Sources */,
 				D48B897621712F35004AD629 /* Channel.swift in Sources */,
+				D48B899B217146DA004AD629 /* SettingsController.swift in Sources */,
 				D48B897A21712F35004AD629 /* baseIdNameModelProtocol.swift in Sources */,
 				D48B897B21712F35004AD629 /* channelProtocol.swift in Sources */,
 				D48B897821712F35004AD629 /* baseIdNameModel.swift in Sources */,
@@ -542,6 +549,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D48B899D21714A47004AD629 /* SettingsControllerTests.swift in Sources */,
 				D48B898D21712F41004AD629 /* SlackDeskTests.swift in Sources */,
 				D48B899021712F41004AD629 /* ConnectionModelTests.swift in Sources */,
 				D48B898E21712F41004AD629 /* ChannelModelTests.swift in Sources */,
