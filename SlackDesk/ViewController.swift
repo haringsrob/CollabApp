@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  SlackDesk
+//  SlackDeskV2
 //
-//  Created by Rob Harings on 12/10/2018.
+//  Created by Rob Harings on 10/10/2018.
 //  Copyright © 2018 Rob Harings. All rights reserved.
 //
 
