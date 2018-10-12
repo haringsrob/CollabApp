@@ -19,7 +19,7 @@ class SlackClientTests: XCTestCase {
                 "name":"mpdm-tom--info707--yves.sterckx-1",
             ],
         ]
-        stub(everything, json(body))
+        stub(uri("/api/conversations.list"), json(body))
         
         let expectation = XCTestExpectation(description: "Channels fetched")
         

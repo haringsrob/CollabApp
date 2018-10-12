@@ -1,10 +1,3 @@
-//
-//  SettingsControllerTests.swift
-//  SlackDeskTests
-//
-//  Created by Rob Harings on 12/10/2018.
-//  Copyright © 2018 Rob Harings. All rights reserved.
-//
 import XCTest
 @testable import SlackDesk
 

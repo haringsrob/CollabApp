@@ -26,7 +26,7 @@ class UserListControllerTests: XCTestCase {
                 ]
             ]
         ]
-        stub(everything, json(body))
+        stub(uri("/api/users.list"), json(body))
         
         let expectation = XCTestExpectation(description: "Users fetched")
         

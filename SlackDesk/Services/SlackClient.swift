@@ -57,6 +57,17 @@ class SlackClient {
         }
     }
     
+    public func getRTMconnectionUrl(completion: @escaping(String, Error?) -> Void) {
+        self.getRequest(method: "rtm.connect").responseJSON { response in
+            switch response.result {
+            case .success:
+                completion(JSON(response.result.value!)["url"].stringValue,  nil)
+            case .failure(let error):
+                completion("", error)
+            }
+        }
+    }
+    
     private func getRequest(method: String, parameters:Parameters = [:]) -> DataRequest {
         let parameters = self.getBasicParameters().merging(parameters){ (_, new) in new };
         return Alamofire.request(self.endpoint + method, parameters: parameters);

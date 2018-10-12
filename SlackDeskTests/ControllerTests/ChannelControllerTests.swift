@@ -26,7 +26,7 @@ class ChannelControllerTests: XCTestCase {
                 ]
             ]
         ]
-        stub(everything, json(body))
+        stub(uri("/api/conversations.list"), json(body))
         
         let expectation = XCTestExpectation(description: "Channels fetched")
         
@@ -58,7 +58,7 @@ class ChannelControllerTests: XCTestCase {
                 ],
             ]
         ]
-        stub(everything, json(messagesBody))
+        stub(uri("/api/conversations.history"), json(messagesBody))
         
         let expectation = XCTestExpectation(description: "Messages fetched")
         
