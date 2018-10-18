@@ -10,18 +10,22 @@ import Cocoa
 import RxSwift
 
 class ConnectionSplitViewController: NSSplitViewController {
-    @IBOutlet var ChannelList: NSOutlineView!
     @IBOutlet var Messages: NSTableView!
+    @IBOutlet var ChannelList: NSTableView!
     
     public var connection: Connection = Connection()
+    private var channelsDeleData: ConnectionSplitViewControllerChannels?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initializeChannels()
+        self.ChannelList.delegate = self.channelsDeleData
+        self.ChannelList.dataSource = self.channelsDeleData
     }
     
     public func setConnection(connection: Connection)-> Void {
         self.connection = connection
+        self.channelsDeleData = ConnectionSplitViewControllerChannels(connection: connection)
     }
     
     private func initializeChannels() {
@@ -38,79 +42,43 @@ class ConnectionSplitViewController: NSSplitViewController {
         channelController.updateChannelList(completion: {_,_ in })
     }
     
-    @IBAction func ChannelChangeAction(_ sender: NSOutlineView) {
-        let a = 0;
-    }
 }
 
-extension ConnectionSplitViewController: NSOutlineViewDataSource {
-    func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
-        if (item != nil) {
-            return 0
-        }
+class ConnectionSplitViewControllerChannels: NSObject, NSTableViewDataSource, NSTableViewDelegate {
+    
+    public var connection: Connection
+    
+    init(connection: Connection) {
+        self.connection = connection
+    }
+    
+    func numberOfRows(in tableView: NSTableView) -> Int {
         return self.connection.getChannels().value.count
     }
     
-    func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-       return connection.getChannels().value[index]
-    }
-    
-    func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
-        return false
-    }
-}
-
-extension ConnectionSplitViewController: NSOutlineViewDelegate {
-    func outlineViewSelectionDidChange(_ notification: Notification) {
-        let a = 0;
-    }
-    
-//    func outlineView(_ outlineView: NSOutlineView, rowViewForItem item: Any) -> NSTableRowView? {
-//        var view: NSTableCellView?
-//
-//        if let feed = item as? Channel {
-//            view = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DataCell"), owner: self) as? NSTableCellView
-//            if let textField = view?.textField {
-//                textField.stringValue = feed.getName()
-//                textField.sizeToFit()
-//            }
-//        }
-//
-//        return view
-//    }
-    
-    func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
-        var view: NSTableCellView?
-
-        if let feed = item as? Channel {
-            view = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DataCell"), owner: self) as? NSTableCellView
-            if let textField = view?.textField {
-                textField.stringValue = feed.getName()
-                textField.sizeToFit()
-            }
+    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
+        guard let item: Channel = self.connection.getChannels().value[row] else {
+            return nil
         }
-
-        return view
+        
+        if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DataCell"), owner: nil) as? NSTableCellView {
+            cell.textField?.stringValue = item.getName()
+            return cell
+        }
+        return nil
     }
-}
-
-extension ConnectionSplitViewController: NSTableViewDataSource {
     
-}
-
-extension ConnectionSplitViewController: NSTableViewDelegate {
-    // Delegate
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        var view: NSTableCellView?
-//        let channelItem:Channel = self.connection.channelStore.channels.value[row]
-//        channelItem.setRowId(row: row)
-//
-//        var identifier:String
-//
-//        view = tableView.make(withIdentifier: "DataCell", owner: self) as? NSTableCellView
-//        if let textField = view?.textField {
-//            textField.stringValue = String(describing: channelItem.getName())
-//        }
-        return view
+        
+        guard let item: Channel = self.connection.getChannels().value[row] else {
+            return nil
+        }
+        
+        if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DataCell"), owner: nil) as? NSTableCellView {
+            cell.textField?.stringValue = item.getName()
+            return cell
+        }
+        return nil
     }
+    
 }
