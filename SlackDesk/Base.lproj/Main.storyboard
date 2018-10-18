@@ -744,14 +744,12 @@
                                                                     <rect key="frame" x="5" y="1" width="126" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
-                                                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z3N-d4-qNJ">
-                                                                            <rect key="frame" x="25" y="0.0" width="14" height="17"/>
-                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z3N-d4-qNJ">
+                                                                            <rect key="frame" x="0.0" y="3" width="14" height="14"/>
                                                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" id="OEr-kl-4UG"/>
                                                                         </imageView>
-                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YSm-DR-aml">
-                                                                            <rect key="frame" x="37" y="0.0" width="91" height="17"/>
-                                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YSm-DR-aml">
+                                                                            <rect key="frame" x="12" y="0.0" width="116" height="17"/>
                                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="KXJ-yW-CEt">
                                                                                 <font key="font" metaFont="system"/>
                                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -759,6 +757,14 @@
                                                                             </textFieldCell>
                                                                         </textField>
                                                                     </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="trailing" secondItem="YSm-DR-aml" secondAttribute="trailing" id="7Jw-Gl-Y2M"/>
+                                                                        <constraint firstItem="Z3N-d4-qNJ" firstAttribute="leading" secondItem="dmX-hM-unk" secondAttribute="leading" id="Jlf-3v-HzV"/>
+                                                                        <constraint firstItem="YSm-DR-aml" firstAttribute="top" secondItem="dmX-hM-unk" secondAttribute="top" id="MFv-Pu-fXs"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="YSm-DR-aml" secondAttribute="bottom" id="YRG-tp-ou1"/>
+                                                                        <constraint firstItem="Z3N-d4-qNJ" firstAttribute="top" secondItem="dmX-hM-unk" secondAttribute="top" id="lKY-Xa-OoX"/>
+                                                                        <constraint firstItem="YSm-DR-aml" firstAttribute="leading" secondItem="Z3N-d4-qNJ" secondAttribute="trailing" id="vTU-ed-Ssf"/>
+                                                                    </constraints>
                                                                     <connections>
                                                                         <outlet property="imageView" destination="Z3N-d4-qNJ" id="zXN-gn-tvT"/>
                                                                         <outlet property="textField" destination="YSm-DR-aml" id="OY1-ny-ca0"/>
@@ -767,6 +773,9 @@
                                                             </prototypeCellViews>
                                                         </tableColumn>
                                                     </tableColumns>
+                                                    <connections>
+                                                        <action selector="ChannelChanged:" target="SZN-Pp-4zV" id="TaT-O1-D0W"/>
+                                                    </connections>
                                                 </tableView>
                                             </subviews>
                                             <nil key="backgroundColor"/>
@@ -830,7 +839,7 @@
                                                                             </textFieldCell>
                                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                             <prototypeCellViews>
-                                                                                <tableCellView id="QM6-OR-oUq">
+                                                                                <tableCellView identifier="NameCell" id="QM6-OR-oUq">
                                                                                     <rect key="frame" x="1" y="1" width="116" height="17"/>
                                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                     <subviews>
@@ -867,7 +876,7 @@
                                                                             </textFieldCell>
                                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                             <prototypeCellViews>
-                                                                                <tableCellView id="fZB-su-yfs">
+                                                                                <tableCellView identifier="DataCell" id="fZB-su-yfs">
                                                                                     <rect key="frame" x="120" y="1" width="339" height="17"/>
                                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                     <subviews>
@@ -892,10 +901,6 @@
                                                                             </prototypeCellViews>
                                                                         </tableColumn>
                                                                     </tableColumns>
-                                                                    <connections>
-                                                                        <outlet property="dataSource" destination="SZN-Pp-4zV" id="wUK-6b-3Qq"/>
-                                                                        <outlet property="delegate" destination="SZN-Pp-4zV" id="rCa-Za-ywp"/>
-                                                                    </connections>
                                                                 </tableView>
                                                             </subviews>
                                                         </clipView>

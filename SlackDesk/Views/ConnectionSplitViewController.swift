@@ -15,17 +15,33 @@ class ConnectionSplitViewController: NSSplitViewController {
     
     public var connection: Connection = Connection()
     private var channelsDeleData: ConnectionSplitViewControllerChannels?
-    
+    private var messagesDeleData: ConnectionSplitViewControllerMessages?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.initializeChannels()
+        
         self.ChannelList.delegate = self.channelsDeleData
         self.ChannelList.dataSource = self.channelsDeleData
+        
+        self.Messages.delegate = self.messagesDeleData
+        self.Messages.dataSource = self.messagesDeleData
+        
+        self.initializeChannels()
+    }
+    
+    @IBAction func ChannelChanged(_ sender: Any) {
+        let channel: Channel = self.connection.getChannels().value[ChannelList.selectedRow]
+        
+        self.messagesDeleData?.setChannel(channel: channel)
+        let channelController:ChannelController = ChannelController(connection: self.connection)
+        channelController.getHistoryForChannel(channel: channel, completion: {_,_ in })
+        self.Messages.reloadData()
     }
     
     public func setConnection(connection: Connection)-> Void {
         self.connection = connection
-        self.channelsDeleData = ConnectionSplitViewControllerChannels(connection: connection)
+        self.channelsDeleData = ConnectionSplitViewControllerChannels(connection: self.connection)
+        self.messagesDeleData = ConnectionSplitViewControllerMessages(connection: self.connection)
     }
     
     private func initializeChannels() {
@@ -45,7 +61,7 @@ class ConnectionSplitViewController: NSSplitViewController {
 }
 
 class ConnectionSplitViewControllerChannels: NSObject, NSTableViewDataSource, NSTableViewDelegate {
-    
+
     public var connection: Connection
     
     init(connection: Connection) {
@@ -56,29 +72,53 @@ class ConnectionSplitViewControllerChannels: NSObject, NSTableViewDataSource, NS
         return self.connection.getChannels().value.count
     }
     
-    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        guard let item: Channel = self.connection.getChannels().value[row] else {
-            return nil
-        }
-        
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DataCell"), owner: nil) as? NSTableCellView {
-            cell.textField?.stringValue = item.getName()
+            cell.textField?.stringValue = self.connection.getChannels().value[row].getName()
             return cell
         }
         return nil
+    }
+}
+
+class ConnectionSplitViewControllerMessages: NSObject, NSTableViewDataSource, NSTableViewDelegate {
+    
+    public var connection: Connection
+    public var channel: Channel?
+    
+    init(connection: Connection) {
+        self.connection = connection
+    }
+    
+    public func setChannel(channel: Channel) {
+        self.channel = channel
+    }
+    
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return self.channel?.getMessages().value.count ?? 0
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        
-        guard let item: Channel = self.connection.getChannels().value[row] else {
+        if self.channel == nil {
             return nil
         }
+        var text: String = ""
+        var cellIdentifier: String = ""
         
-        if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DataCell"), owner: nil) as? NSTableCellView {
-            cell.textField?.stringValue = item.getName()
+        let item: Message = (self.channel?.getMessages().value[row])!;
+        
+        if tableColumn == tableView.tableColumns[0] {
+            text = item.getUserId()
+            cellIdentifier = "NameCell"
+        } else if tableColumn == tableView.tableColumns[1] {
+            text = item.getBody()
+            cellIdentifier = "DataCell"
+        }
+        
+        if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as? NSTableCellView {
+            cell.textField?.stringValue = text
             return cell
         }
         return nil
     }
-    
 }
