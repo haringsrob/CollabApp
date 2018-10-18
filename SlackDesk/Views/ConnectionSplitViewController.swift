@@ -36,6 +36,16 @@ class ConnectionSplitViewController: NSSplitViewController {
         let channelController:ChannelController = ChannelController(connection: self.connection)
         channelController.getHistoryForChannel(channel: channel, completion: {_,_ in })
         self.Messages.reloadData()
+        
+        _ = channel.getMessages().asObservable().subscribe() { event in
+            switch event {
+            case .next(_):
+                self.Messages.reloadData()
+                break;
+            case .error(_): break
+            case .completed: break
+            }
+        }
     }
     
     public func setConnection(connection: Connection)-> Void {
