@@ -1,14 +1,11 @@
 import Foundation
+import RxSwift
 
 class Connection: ConnectionProtocol {
     
     private var name:String = "";
     private var key:String = "";
-    public var channels = [Channel]() {
-        didSet {
-            print("Var update")
-        }
-    }
+    public var channels:Variable<[Channel]> = Variable([])
     public var users = [User]()
     
     public func setName(_ name: String) -> Void {
@@ -28,10 +25,10 @@ class Connection: ConnectionProtocol {
     }
     
     func addChannel(_ channel: Channel) {
-        self.channels.append(channel)
+        self.channels.value.append(channel)
     }
     
-    func getChannels() -> [Channel] {
+    func getChannels() -> Variable<[Channel]> {
         return self.channels
     }
     

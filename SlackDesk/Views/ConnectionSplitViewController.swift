@@ -7,22 +7,39 @@
 //
 
 import Cocoa
+import RxSwift
 
 class ConnectionSplitViewController: NSSplitViewController {
     @IBOutlet var ChannelList: NSOutlineView!
+    @IBOutlet var Messages: NSTableView!
     
     public var connection: Connection = Connection()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.initializeChannels()
     }
     
     public func setConnection(connection: Connection)-> Void {
         self.connection = connection
-        
-        let channelController:ChannelController = ChannelController(connection: self.connection)
-        channelController.updateChannelList() {response, error in
+    }
+    
+    private func initializeChannels() {
+        _ = self.connection.getChannels().asObservable().subscribe() { event in
+            switch event {
+            case .next(_):
+                self.ChannelList.reloadData()
+                break;
+            case .error(_): break
+            case .completed: break
+            }
         }
+        let channelController:ChannelController = ChannelController(connection: self.connection)
+        channelController.updateChannelList(completion: {_,_ in })
+    }
+    
+    @IBAction func ChannelChangeAction(_ sender: NSOutlineView) {
+        let a = 0;
     }
 }
 
@@ -31,20 +48,23 @@ extension ConnectionSplitViewController: NSOutlineViewDataSource {
         if (item != nil) {
             return 0
         }
-        return connection.getChannels().count
+        return self.connection.getChannels().value.count
     }
     
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-        return connection.getChannels()[index]
+       return connection.getChannels().value[index]
     }
     
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
         return false
     }
-
 }
 
 extension ConnectionSplitViewController: NSOutlineViewDelegate {
+    func outlineViewSelectionDidChange(_ notification: Notification) {
+        let a = 0;
+    }
+    
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
         var view: NSTableCellView?
         
@@ -56,6 +76,27 @@ extension ConnectionSplitViewController: NSOutlineViewDelegate {
             }
         }
         
+        return view
+    }
+}
+
+extension ConnectionSplitViewController: NSTableViewDataSource {
+    
+}
+
+extension ConnectionSplitViewController: NSTableViewDelegate {
+    // Delegate
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        var view: NSTableCellView?
+//        let channelItem:Channel = self.connection.channelStore.channels.value[row]
+//        channelItem.setRowId(row: row)
+//
+//        var identifier:String
+//
+//        view = tableView.make(withIdentifier: "DataCell", owner: self) as? NSTableCellView
+//        if let textField = view?.textField {
+//            textField.stringValue = String(describing: channelItem.getName())
+//        }
         return view
     }
 }

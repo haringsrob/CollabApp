@@ -7,6 +7,7 @@ PODS:
     - URITemplate (~> 2.0)
   - Mockingjay/XCTest (2.0.1):
     - Mockingjay/Core
+  - RxSwift (4.3.1)
   - Starscream (3.0.6)
   - SwiftyJSON (4.2.0)
   - URITemplate (2.0.3)
@@ -14,6 +15,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.7)
   - Mockingjay
+  - RxSwift (~> 4.0)
   - Starscream (~> 3.0.2)
   - SwiftyJSON (~> 4.0)
 
@@ -21,6 +23,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Mockingjay
+    - RxSwift
     - Starscream
     - SwiftyJSON
     - URITemplate
@@ -28,10 +31,11 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   Mockingjay: 11a621880d2887f1775bdcf824341eb68f218450
+  RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
   Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   URITemplate: ace0c4c46dcf8afe6e89b4060621852886b15c3b
 
-PODFILE CHECKSUM: 23bdbfef949f58c02bfe9da0559baa119a2c45a9
+PODFILE CHECKSUM: 0195ee69fa367bdb9f92bad1a93f6899a450bf50
 
 COCOAPODS: 1.6.0.beta.1
