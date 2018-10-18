@@ -25,7 +25,8 @@ class ChannelController: ClientAccesingControllerBase {
     
     public func getHistoryForChannel(channel: Channel, completion: @escaping(Bool, Error?) -> Void) {
         self.getClient().conversationsHistory(channelId: channel.getId()) { response, error in
-            for (_,subJson):(String, JSON) in response {
+            // Has to be reversed.
+            for (_,subJson):(String, JSON) in response.reversed() {
                 let message:Message = Message()
                 message.setBody(subJson["text"].stringValue)
                 message.setUserId(subJson["user"].stringValue)
@@ -33,7 +34,6 @@ class ChannelController: ClientAccesingControllerBase {
                 channel.addMessage(message)
             }
             completion(true, error)
-            
         }
     }
     

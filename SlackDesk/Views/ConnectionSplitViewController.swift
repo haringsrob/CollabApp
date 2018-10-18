@@ -34,8 +34,11 @@ class ConnectionSplitViewController: NSSplitViewController {
         
         self.messagesDeleData?.setChannel(channel: channel)
         let channelController:ChannelController = ChannelController(connection: self.connection)
-        channelController.getHistoryForChannel(channel: channel, completion: {_,_ in })
-        self.Messages.reloadData()
+        
+        if (channel.getMessages().value.isEmpty) {
+            channelController.getHistoryForChannel(channel: channel, completion: {_,_ in })
+            self.Messages.reloadData()
+        }
         
         _ = channel.getMessages().asObservable().subscribe() { event in
             switch event {
