@@ -4,9 +4,13 @@ class Connection: ConnectionProtocol {
     
     private var name:String = "";
     private var key:String = "";
-    private var channels = [Channel]()
-    private var users = [User]()
-
+    public var channels = [Channel]() {
+        didSet {
+            print("Var update")
+        }
+    }
+    public var users = [User]()
+    
     public func setName(_ name: String) -> Void {
         self.name = name;
     }

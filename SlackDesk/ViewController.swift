@@ -1,19 +1,28 @@
-//
-//  ViewController.swift
-//  SlackDeskV2
-//
-//  Created by Rob Harings on 10/10/2018.
-//  Copyright © 2018 Rob Harings. All rights reserved.
-//
-
 import Cocoa
 
-class ViewController: NSViewController {
-
+class ViewController: NSTabViewController {
+    @IBOutlet var connectionTabView: NSTabView!
+    
+    public var connections: Array<Connection> = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let connection:Connection = Connection()
+        connection.setKey("***REMOVED***")
+        connection.setName("Sevendays")
+        
+        self.connections.append(connection)
+        
+        for connection in self.connections {
+            let newItem: NSTabViewItem = NSTabViewItem(identifier: connection.getName())
+            newItem.label = connection.getName()
+            
+            let viewController = storyboard?.instantiateController(withIdentifier: "connectionDetail") as? ConnectionSplitViewController
+            viewController?.setConnection(connection: connection)
+            newItem.viewController = viewController
+            addTabViewItem(newItem)
+        }
     }
 
     override var representedObject: Any? {
@@ -22,6 +31,4 @@ class ViewController: NSViewController {
         }
     }
 
-
 }
-

@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  SlackDeskV2
-//
-//  Created by Rob Harings on 10/10/2018.
-//  Copyright © 2018 Rob Harings. All rights reserved.
-//
-
 import Cocoa
 
 @NSApplicationMain

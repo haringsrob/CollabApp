@@ -7,7 +7,14 @@ class ChannelController: ClientAccesingControllerBase {
         self.getClient().conversationsList() { response, error in
             for (_,subJson):(String, JSON) in response {
                 let channel:Channel = Channel()
-                channel.setName(subJson["name"].stringValue)
+                // IM channels.
+                if subJson["name"].stringValue.isEmpty {
+                    channel.setName(subJson["user"].stringValue)
+                    channel.markAsDirectMessageChannel()
+                }
+                else {
+                    channel.setName(subJson["name"].stringValue)
+                }
                 channel.setId(subJson["id"].stringValue)
                 self.connection.addChannel(channel)
             }
