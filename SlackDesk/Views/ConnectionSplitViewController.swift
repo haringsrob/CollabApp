@@ -65,9 +65,23 @@ extension ConnectionSplitViewController: NSOutlineViewDelegate {
         let a = 0;
     }
     
+//    func outlineView(_ outlineView: NSOutlineView, rowViewForItem item: Any) -> NSTableRowView? {
+//        var view: NSTableCellView?
+//
+//        if let feed = item as? Channel {
+//            view = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DataCell"), owner: self) as? NSTableCellView
+//            if let textField = view?.textField {
+//                textField.stringValue = feed.getName()
+//                textField.sizeToFit()
+//            }
+//        }
+//
+//        return view
+//    }
+    
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
         var view: NSTableCellView?
-        
+
         if let feed = item as? Channel {
             view = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DataCell"), owner: self) as? NSTableCellView
             if let textField = view?.textField {
@@ -75,7 +89,7 @@ extension ConnectionSplitViewController: NSOutlineViewDelegate {
                 textField.sizeToFit()
             }
         }
-        
+
         return view
     }
 }
