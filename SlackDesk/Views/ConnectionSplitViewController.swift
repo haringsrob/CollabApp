@@ -130,6 +130,7 @@ class ConnectionSplitViewControllerMessages: NSObject, NSTableViewDataSource, NS
         
         if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as? NSTableCellView {
             cell.textField?.stringValue = text
+            //cell.translatesAutoresizingMaskIntoConstraints = true
             return cell
         }
         return nil
