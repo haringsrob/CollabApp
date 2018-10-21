@@ -129,10 +129,24 @@ class ConnectionSplitViewControllerMessages: NSObject, NSTableViewDataSource, NS
         }
         
         if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as? NSTableCellView {
-            cell.textField?.stringValue = text
-            //cell.translatesAutoresizingMaskIntoConstraints = true
+            
+            cell.textField?.attributedStringValue = replaceLinksAndGetAttributedString(text)
             return cell
         }
         return nil
     }
+}
+
+func replaceLinksAndGetAttributedString(_ text: String) -> NSAttributedString {
+    let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
+    let matches = detector.matches(in: text, options: [], range: NSRange(location: 0, length: text.utf16.count))
+    
+    let attributedString = NSMutableAttributedString(string: text)
+    
+    for match in matches {
+        guard let range = Range(match.range, in: text) else { continue }
+        attributedString.addAttribute(NSAttributedString.Key.link, value: text[range], range: match.range)
+    }
+    
+    return attributedString
 }
