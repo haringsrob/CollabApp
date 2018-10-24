@@ -12,6 +12,7 @@ target 'SlackDesk' do
   pod 'RxSwift', '~> 4.0'
   pod 'Smile'
   pod 'Down'
+  pod 'CrossroadRegex'
   
   target 'SlackDeskTests' do
     inherit! :search_paths

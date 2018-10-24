@@ -1,6 +1,7 @@
 import Cocoa
 import Smile
 import Down
+import Regex
 
 class ViewController: NSTabViewController {
     @IBOutlet var connectionTabView: NSTabView!
@@ -35,8 +36,20 @@ class ViewController: NSTabViewController {
 
 }
 
-func replaceLinksAndGetAttributedString(_ text: String) -> NSAttributedString {
-    let emojiText = Smile.replaceAlias(string: text);
+func replaceLinksAndGetAttributedString(_ text: String, connection: Connection) -> NSAttributedString {
+    var emojiText = Smile.replaceAlias(string: text);
+    
+    emojiText = ("<@([A-Z]\\w+){1}(\\|.+)?>".r?.replaceAll(in: emojiText) { match in
+        if match.group(at: 1) != nil {
+            do {
+                return try "<@" + (connection.findUserById(match.group(at: 1)!).getName()) + ">"
+            }
+            catch {
+                return nil
+            }
+        }
+        return nil
+    })!
     
     let down = Down(markdownString: emojiText)
     let InMutableAttributedString = try? down.toAttributedString()

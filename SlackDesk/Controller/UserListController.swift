@@ -9,6 +9,12 @@ class UserListController: ClientAccesingControllerBase {
                 let user:User = User()
                 user.setName(subJson["name"].stringValue)
                 user.setId(subJson["id"].stringValue)
+                if (subJson["presence"].stringValue == "active") {
+                    user.isConnected.value = true
+                }
+                else {
+                    user.isConnected.value = false
+                }
                 self.connection.addUser(user)
             }
             completion(true, error)

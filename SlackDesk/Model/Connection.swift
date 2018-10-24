@@ -6,7 +6,7 @@ class Connection: ConnectionProtocol {
     private var name:String = "";
     private var key:String = "";
     public var channels:Variable<[Channel]> = Variable([])
-    public var users = [User]()
+    public var users:Variable<[User]> = Variable([])
     
     public func setName(_ name: String) -> Void {
         self.name = name;
@@ -33,10 +33,10 @@ class Connection: ConnectionProtocol {
     }
     
     func addUser(_ user: User) {
-        self.users.append(user)
+        self.users.value.append(user)
     }
     
-    func getUsers() -> [User] {
+    func getUsers() -> Variable<[User]> {
         return self.users
     }
     
@@ -46,5 +46,13 @@ class Connection: ConnectionProtocol {
         }
         
         return channel
+    }
+    
+    func findUserById(_ id: String) throws -> User {
+        guard let user = users.value.first(where: { $0.getId() == id }) else {
+            throw ChannelException.userWithIdNotFound(id: id)
+        }
+        
+        return user
     }
 }

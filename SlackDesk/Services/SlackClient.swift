@@ -19,7 +19,7 @@ class SlackClient {
     }
     
     public func usersList(completion: @escaping (JSON, Error?) -> Void) {
-        self.getRequest(method: "users.list").responseJSON { response in
+        self.getRequest(method: "users.list", parameters: ["presence": "true"]).responseJSON { response in
                 switch response.result {
                 case .success:
                     completion(JSON(response.result.value!)["members"],  nil)

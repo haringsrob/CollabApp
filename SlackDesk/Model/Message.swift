@@ -12,9 +12,9 @@ class Message: MessageProtocol {
         self.body = body;
     }
     
-    public func getBody() -> NSAttributedString {
+    public func getBody(connection: Connection) -> NSAttributedString {
         if self.bodyAttributedString == nil {
-            self.bodyAttributedString = replaceLinksAndGetAttributedString(self.body)
+            self.bodyAttributedString = replaceLinksAndGetAttributedString(self.body, connection: connection)
         }
         
         return self.bodyAttributedString!;
