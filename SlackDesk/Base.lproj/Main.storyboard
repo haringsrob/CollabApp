@@ -847,7 +847,7 @@
                                                                                     <subviews>
                                                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="k68-LD-25Z">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="116" height="17"/>
-                                                                                            <textFieldCell key="cell" selectable="YES" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="Wfa-QR-Hlx">
+                                                                                            <textFieldCell key="cell" selectable="YES" sendsActionOnEndEditing="YES" alignment="left" title="Table View Cell" id="Wfa-QR-Hlx">
                                                                                                 <font key="font" metaFont="system"/>
                                                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -884,7 +884,7 @@
                                                                                     <subviews>
                                                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="782-YG-2Ez">
                                                                                             <rect key="frame" x="8" y="0.0" width="254" height="17"/>
-                                                                                            <textFieldCell key="cell" selectable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" id="HUE-mW-7mu">
+                                                                                            <textFieldCell key="cell" truncatesLastVisibleLine="YES" selectable="YES" alignment="left" title="Table View Cell" allowsEditingTextAttributes="YES" id="HUE-mW-7mu">
                                                                                                 <font key="font" metaFont="system"/>
                                                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -946,6 +946,9 @@
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
+                                                        <connections>
+                                                            <action selector="SubmitMessage:" target="SZN-Pp-4zV" id="TEO-62-Jis"/>
+                                                        </connections>
                                                     </textField>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rJd-Z5-uO4">
                                                         <rect key="frame" x="345" y="-3" width="55" height="55"/>
@@ -956,6 +959,9 @@
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <action selector="SubmitMessageByButton:" target="SZN-Pp-4zV" id="1mx-vn-2i1"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -991,6 +997,7 @@
                     </splitView>
                     <connections>
                         <outlet property="ChannelList" destination="rse-gS-GKz" id="mWH-vk-gZg"/>
+                        <outlet property="MessageBox" destination="h7a-do-QJe" id="s36-bQ-BSi"/>
                         <outlet property="Messages" destination="nqg-O6-Egs" id="JMl-60-zRB"/>
                     </connections>
                 </viewController>
@@ -1020,33 +1027,6 @@
                 <customObject id="Ahb-2B-fJA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="73" y="710"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="YPL-0f-Mvj">
-            <objects>
-                <viewController id="VLK-yg-OhT" sceneMemberID="viewController">
-                    <splitView key="view" arrangesAllSubviews="NO" dividerStyle="thin" vertical="YES" id="kgN-yg-2iD">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="50"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <subviews>
-                            <customView fixedFrame="YES" id="Ca2-vE-aq9">
-                                <rect key="frame" x="0.0" y="0.0" width="337" height="50"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </customView>
-                            <customView fixedFrame="YES" id="6SD-5s-QiX">
-                                <rect key="frame" x="338" y="0.0" width="112" height="50"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </customView>
-                        </subviews>
-                        <holdingPriorities>
-                            <real value="299"/>
-                            <real value="250"/>
-                        </holdingPriorities>
-                    </splitView>
-                </viewController>
-                <customObject id="ehx-eL-jh5" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1474" y="710"/>
         </scene>
     </scenes>
     <resources>

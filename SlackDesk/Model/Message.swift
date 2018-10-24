@@ -5,13 +5,19 @@ class Message: MessageProtocol {
     private var body:String = "";
     private var timeStamp:String = "";
     private var userId:String = "";
+    
+    private var bodyAttributedString:NSAttributedString?
 
     public func setBody(_ body: String) -> Void {
         self.body = body;
     }
     
-    public func getBody() -> String {
-        return self.body;
+    public func getBody() -> NSAttributedString {
+        if self.bodyAttributedString == nil {
+            self.bodyAttributedString = replaceLinksAndGetAttributedString(self.body)
+        }
+        
+        return self.bodyAttributedString!;
     }
 
     public func setTimeStamp(_ timeStamp: String) -> Void {

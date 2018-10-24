@@ -1,4 +1,6 @@
 import Cocoa
+import Smile
+import Down
 
 class ViewController: NSTabViewController {
     @IBOutlet var connectionTabView: NSTabView!
@@ -12,19 +14,7 @@ class ViewController: NSTabViewController {
         connection.setKey("***REMOVED***")
         connection.setName("Sevendays")
         
-        let connection2:Connection = Connection()
-        connection2.setKey("***REMOVED***")
-        connection2.setName("Sevendays2")
-        
-        
-        let connection3:Connection = Connection()
-        connection3.setKey("***REMOVED***")
-        connection3.setName("Sevendays3")
-        
-        
         self.connections.append(connection)
-        self.connections.append(connection2)
-        self.connections.append(connection3)
 
         for connection in self.connections {
             let newItem: NSTabViewItem = NSTabViewItem(identifier: connection.getName())
@@ -43,4 +33,26 @@ class ViewController: NSTabViewController {
         }
     }
 
+}
+
+func replaceLinksAndGetAttributedString(_ text: String) -> NSAttributedString {
+    let emojiText = Smile.replaceAlias(string: text);
+    
+    let down = Down(markdownString: emojiText)
+    let InMutableAttributedString = try? down.toAttributedString()
+    
+    let attributedString: NSMutableAttributedString = InMutableAttributedString?.mutableCopy() as! NSMutableAttributedString
+    
+    // Trim the last linebreak.
+    if (attributedString.string.last == "\n") {
+        attributedString.deleteCharacters(in: NSRange(location: attributedString.length-1, length: 1))
+    }
+    
+    // Fix the string to be system coloured.
+    attributedString.enumerateAttribute(NSAttributedString.Key.font, in: NSMakeRange(0, attributedString.length), options: NSAttributedString.EnumerationOptions(rawValue: 0)) { (value, range, stop) in
+        let color:NSColor = NSColor(catalogName: "System", colorName: "textColor")!
+        attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
+    }
+    
+    return attributedString
 }

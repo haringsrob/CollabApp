@@ -39,4 +39,12 @@ class Connection: ConnectionProtocol {
     func getUsers() -> [User] {
         return self.users
     }
+    
+    func findChannelById(_ id: String) throws -> Channel {
+        guard let channel = channels.value.first(where: { $0.getId() == id }) else {
+            throw ChannelException.ChannelWithIdNotFound(id: id)
+        }
+        
+        return channel
+    }
 }

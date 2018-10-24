@@ -1,6 +1,7 @@
 import Foundation
 import Starscream
 import SwiftyJSON
+import RxSwift
 
 // This file might need the most work on reworking.
 //
@@ -18,6 +19,8 @@ class SlackWebSocketClient: WebSocketDelegate {
     private var connectTimer:Timer!
     private var actionID:Int = 0
     
+    public var isConnected:Variable<Bool> = Variable(false)
+    
     init(connection: Connection) {
         self.connection = connection
         self.client = SlackClient(apiKey: self.connection.getKey())
@@ -25,7 +28,7 @@ class SlackWebSocketClient: WebSocketDelegate {
     
     public func startWebSocket() {
         self.client.getRTMconnectionUrl() { rtmUrl, error in
-            if (error != nil) {
+            if (error == nil) {
                 self.socket = WebSocket(url: URL(string: rtmUrl)!)
                 self.socket.delegate = self
                 self.socket.connect()
@@ -34,16 +37,15 @@ class SlackWebSocketClient: WebSocketDelegate {
                 }
                 self.startWebSocketPinger()
             }
-            // @todo: Handle error.
-            // It should show an error to the user with more details.
         }
     }
     
     func websocketDidConnect(socket: WebSocketClient) {
-        // @todo: Mark user online.
+        self.isConnected.value = true
     }
     
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
+        self.isConnected.value = false
         self.pingTimer.invalidate()
         self.connectTimer = Timer.scheduledTimer(withTimeInterval: 15, repeats: true) { [weak self] _ in
             // @todo: Show message about reconnect attempt.
@@ -52,24 +54,51 @@ class SlackWebSocketClient: WebSocketDelegate {
     }
     
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
-        let json = JSON(text)
-        if let dataType = json["type"].string {
-            switch dataType {
-            case "message":
-                // @todo: implement New message.
-                break;
-            case "channel_marked", "im_marked":
-                // @todo: Implement.
-                break;
-            case "channel_created":
-                // @todo: New channel created.
-                break;
-            case "presence_change":
-                // @tood: User changed presence.
-                break;
-            default:
-                break;
+        do {
+            let type = try JSON(data: text.data(using: .utf8, allowLossyConversion: false)!)
+            if let typevalue = type["type"].string {
+                switch typevalue {
+                case "message":
+                    let message: Message = Message()
+                    message.setBody(type["text"].stringValue)
+                    message.setUserId(type["user"].stringValue)
+                    message.setTimeStamp(type["ts"].stringValue)
+                    try self.connection.findChannelById(type["channel"].stringValue).addMessage(message)
+                    break;
+                case "channel_marked", "im_marked":
+                    // @todo: Implement.
+                    break;
+                case "channel_created":
+                    // @todo: New channel created.
+                    break;
+                case "presence_change":
+                    // @tood: User changed presence.
+                    break;
+                default:
+                    break;
+                }
             }
+        } catch {
+            // @todo: improve.
+            print("Unexpected error: \(error).")
+        }
+    }
+    
+    public func sendMessage(message: String, channel: Channel) {
+        let data:Dictionary = [
+            "id": self.getIncrementedActionId(),
+            "type": "message",
+            "channel":channel.getId(),
+            "text": message
+            ]
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: data, options: [])
+        let jsonString = String(data: jsonData!, encoding: .utf8)
+        self.socket.write(string: jsonString!) {
+            let messageObject: Message = Message()
+            messageObject.setBody(message)
+            messageObject.setUserId("You")
+            channel.addMessage(messageObject)
         }
     }
     

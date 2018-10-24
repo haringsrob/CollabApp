@@ -1,12 +1,6 @@
-//
-//  ConnectionSplitViewController.swift
-//  SlackDesk
-//
-//  Created by Rob Harings on 15/10/2018.
-//  Copyright © 2018 Rob Harings. All rights reserved.
-//
-
 import Cocoa
+import Smile
+import Down
 import RxSwift
 
 class ConnectionSplitViewController: NSSplitViewController {
@@ -16,7 +10,12 @@ class ConnectionSplitViewController: NSSplitViewController {
     public var connection: Connection = Connection()
     private var channelsDeleData: ConnectionSplitViewControllerChannels?
     private var messagesDeleData: ConnectionSplitViewControllerMessages?
-
+    
+    private var socket: SlackWebSocketClient!
+    @IBOutlet var MessageBox: NSTextField!
+    
+    private var activeChannel:Channel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +32,7 @@ class ConnectionSplitViewController: NSSplitViewController {
         let channel: Channel = self.connection.getChannels().value[ChannelList.selectedRow]
         
         self.messagesDeleData?.setChannel(channel: channel)
+        self.activeChannel = channel
         let channelController:ChannelController = ChannelController(connection: self.connection)
         
         if (channel.getMessages().value.isEmpty) {
@@ -55,6 +55,9 @@ class ConnectionSplitViewController: NSSplitViewController {
         self.connection = connection
         self.channelsDeleData = ConnectionSplitViewControllerChannels(connection: self.connection)
         self.messagesDeleData = ConnectionSplitViewControllerMessages(connection: self.connection)
+        
+        self.socket = SlackWebSocketClient(connection: connection)
+        self.socket.startWebSocket()
     }
     
     private func initializeChannels() {
@@ -69,6 +72,25 @@ class ConnectionSplitViewController: NSSplitViewController {
         }
         let channelController:ChannelController = ChannelController(connection: self.connection)
         channelController.updateChannelList(completion: {_,_ in })
+    }
+    
+    // A message has been send by pressing "Enter".
+    @IBAction func SubmitMessage(_ sender: Any) {
+        self.sendMessageToActiveChannelAndClearInputField()
+    }
+    
+    // A message has been send by pressing the send button.
+    @IBAction func SubmitMessageByButton(_ sender: Any) {
+        self.sendMessageToActiveChannelAndClearInputField()
+    }
+    
+    private func sendMessageToActiveChannelAndClearInputField() {
+        if self.activeChannel != nil {
+            if !self.MessageBox.stringValue.isEmpty {
+                self.socket.sendMessage(message: self.MessageBox.stringValue, channel: self.activeChannel!)
+                self.MessageBox.stringValue = ""
+            }
+        }
     }
     
 }
@@ -115,38 +137,27 @@ class ConnectionSplitViewControllerMessages: NSObject, NSTableViewDataSource, NS
         if self.channel == nil {
             return nil
         }
-        var text: String = ""
         var cellIdentifier: String = ""
         
         let item: Message = (self.channel?.getMessages().value[row])!;
         
         if tableColumn == tableView.tableColumns[0] {
-            text = item.getUserId()
             cellIdentifier = "NameCell"
         } else if tableColumn == tableView.tableColumns[1] {
-            text = item.getBody()
             cellIdentifier = "DataCell"
         }
         
         if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as? NSTableCellView {
             
-            cell.textField?.attributedStringValue = replaceLinksAndGetAttributedString(text)
+            if tableColumn == tableView.tableColumns[1] {
+                cell.textField?.attributedStringValue = item.getBody()
+            }
+            else {
+                cell.textField?.stringValue = item.getUserId()
+            }
+            
             return cell
         }
         return nil
     }
-}
-
-func replaceLinksAndGetAttributedString(_ text: String) -> NSAttributedString {
-    let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
-    let matches = detector.matches(in: text, options: [], range: NSRange(location: 0, length: text.utf16.count))
-    
-    let attributedString = NSMutableAttributedString(string: text)
-    
-    for match in matches {
-        guard let range = Range(match.range, in: text) else { continue }
-        attributedString.addAttribute(NSAttributedString.Key.link, value: text[range], range: match.range)
-    }
-    
-    return attributedString
 }

@@ -11,6 +11,7 @@
 		A3C170E076862FC3C15A1E01 /* Pods_SlackDesk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81D157E1414BF1AA7E648E5 /* Pods_SlackDesk.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		A60951E5BDA6D9DB34C0E4C2 /* Pods_SlackDeskUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99E6BE2D813EB02DDD11DFDE /* Pods_SlackDeskUITests.framework */; };
 		D427B41721748A7A0070F96B /* ConnectionSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D427B41621748A7A0070F96B /* ConnectionSplitViewController.swift */; };
+		D449DC2A217C8AF000CC59D4 /* ChannelException.swift in Sources */ = {isa = PBXBuildFile; fileRef = D449DC29217C8AF000CC59D4 /* ChannelException.swift */; };
 		D48B896521712F27004AD629 /* ChannelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B896421712F27004AD629 /* ChannelController.swift */; };
 		D48B897421712F35004AD629 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B896721712F35004AD629 /* Connection.swift */; };
 		D48B897521712F35004AD629 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B896821712F35004AD629 /* Message.swift */; };
@@ -88,6 +89,7 @@
 		A7C2B7C63D04594C7ED003F5 /* Pods-SlackDeskUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlackDeskUITests.release.xcconfig"; path = "Target Support Files/Pods-SlackDeskUITests/Pods-SlackDeskUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CDA3B1D6DE31A57230F8D4E8 /* Pods-SlackDesk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlackDesk.debug.xcconfig"; path = "Target Support Files/Pods-SlackDesk/Pods-SlackDesk.debug.xcconfig"; sourceTree = "<group>"; };
 		D427B41621748A7A0070F96B /* ConnectionSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionSplitViewController.swift; sourceTree = "<group>"; };
+		D449DC29217C8AF000CC59D4 /* ChannelException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelException.swift; sourceTree = "<group>"; };
 		D48B896421712F27004AD629 /* ChannelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelController.swift; sourceTree = "<group>"; };
 		D48B896721712F35004AD629 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		D48B896821712F35004AD629 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -199,6 +201,14 @@
 			path = Datasources;
 			sourceTree = "<group>";
 		};
+		D449DC28217C8AD100CC59D4 /* Exception */ = {
+			isa = PBXGroup;
+			children = (
+				D449DC29217C8AF000CC59D4 /* ChannelException.swift */,
+			);
+			path = Exception;
+			sourceTree = "<group>";
+		};
 		D48B896321712F27004AD629 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +223,7 @@
 		D48B896621712F35004AD629 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D449DC28217C8AD100CC59D4 /* Exception */,
 				D48B896721712F35004AD629 /* Connection.swift */,
 				D48B896821712F35004AD629 /* Message.swift */,
 				D48B896921712F35004AD629 /* Channel.swift */,
@@ -532,7 +543,9 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SlackDesk/Pods-SlackDesk-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Down/Down.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Smile/Smile.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
@@ -541,7 +554,9 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Down.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Smile.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
@@ -625,6 +640,7 @@
 			files = (
 				D4BFE71B21712D1A001945E2 /* ViewController.swift in Sources */,
 				D48B897E21712F35004AD629 /* SlackClient.swift in Sources */,
+				D449DC2A217C8AF000CC59D4 /* ChannelException.swift in Sources */,
 				D48B897621712F35004AD629 /* Channel.swift in Sources */,
 				D48B899B217146DA004AD629 /* SettingsController.swift in Sources */,
 				D48B897A21712F35004AD629 /* baseIdNameModelProtocol.swift in Sources */,

@@ -10,6 +10,8 @@ target 'SlackDesk' do
   pod 'Alamofire', '~> 4.7'
   pod 'SwiftyJSON', '~> 4.0'
   pod 'RxSwift', '~> 4.0'
+  pod 'Smile'
+  pod 'Down'
   
   target 'SlackDeskTests' do
     inherit! :search_paths
