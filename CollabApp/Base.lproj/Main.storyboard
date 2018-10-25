@@ -150,7 +150,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="SlackDesk" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="CollabApp" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -159,7 +159,7 @@
         <!--Your connections-->
         <scene sceneID="der-Pa-VWt">
             <objects>
-                <viewController title="Your connections" id="k4e-o3-zSh" sceneMemberID="viewController">
+                <viewController title="Your connections" id="k4e-o3-zSh" customClass="SettingsViewController" customModule="CollabApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="nyw-GV-52w">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -168,22 +168,22 @@
                                 <rect key="frame" x="0.0" y="46" width="450" height="254"/>
                                 <clipView key="contentView" drawsBackground="NO" id="w9E-pS-Nd6">
                                     <rect key="frame" x="1" y="0.0" width="448" height="253"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="B3h-Ez-3JP" viewBased="YES" id="1TG-jR-JQM">
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="B3h-Ez-3JP" viewBased="YES" id="1TG-jR-JQM">
                                             <rect key="frame" x="0.0" y="0.0" width="448" height="228"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn width="116" minWidth="40" maxWidth="1000" id="1n4-0b-9GE">
+                                                <tableColumn identifier="connectionName" width="116" minWidth="40" maxWidth="1000" id="1n4-0b-9GE">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Name">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" continuous="YES" title="Text Cell" id="5gB-0h-NtF">
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="5gB-0h-NtF">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -194,10 +194,10 @@
                                                             <rect key="frame" x="1" y="1" width="116" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1vV-Zr-TGM">
+                                                                <textField identifier="connectionName" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1vV-Zr-TGM">
                                                                     <rect key="frame" x="0.0" y="0.0" width="116" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="p9P-0W-LAs">
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" id="p9P-0W-LAs">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -210,13 +210,13 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn width="326" minWidth="40" maxWidth="1000" id="bhI-XR-4OO">
+                                                <tableColumn identifier="connectionToken" width="326" minWidth="40" maxWidth="1000" id="bhI-XR-4OO">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Token">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" continuous="YES" title="Text Cell" id="Yv8-PS-AfX">
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="Yv8-PS-AfX">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -227,10 +227,10 @@
                                                             <rect key="frame" x="120" y="1" width="326" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MAx-sl-7yX">
+                                                                <textField identifier="connectionToken" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MAx-sl-7yX">
                                                                     <rect key="frame" x="0.0" y="0.0" width="326" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="P3p-Mi-COd">
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" id="P3p-Mi-COd">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -244,6 +244,9 @@
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
+                                            <connections>
+                                                <action selector="RowSaved:" target="k4e-o3-zSh" id="PMo-NS-Ikp"/>
+                                            </connections>
                                         </tableView>
                                     </subviews>
                                     <nil key="backgroundColor"/>
@@ -262,23 +265,45 @@
                                 </tableHeaderView>
                             </scrollView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZYS-2e-Cb7">
-                                <rect key="frame" x="319" y="4" width="122" height="32"/>
-                                <buttonCell key="cell" type="push" title="Save settings" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Sd5-sv-Gqc">
+                                <rect key="frame" x="371" y="4" width="70" height="32"/>
+                                <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Sd5-sv-Gqc">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="SaveSettingsButton:" target="k4e-o3-zSh" id="5h8-Pf-hkL"/>
+                                </connections>
                             </button>
+                            <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6gU-nM-pBU">
+                                <rect key="frame" x="13" y="9" width="195" height="24"/>
+                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="G83-dU-dhT">
+                                    <font key="font" metaFont="system"/>
+                                    <segments>
+                                        <segment label="Add" image="NSAddTemplate" width="94"/>
+                                        <segment label="Remove" image="NSRemoveTemplate" width="94" selected="YES" tag="1"/>
+                                    </segments>
+                                </segmentedCell>
+                                <connections>
+                                    <action selector="TableActionControl:" target="k4e-o3-zSh" id="nKQ-W0-rqV"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="6gU-nM-pBU" secondAttribute="bottom" constant="11" id="2Zn-gh-5Fs"/>
+                            <constraint firstItem="6gU-nM-pBU" firstAttribute="top" secondItem="FoE-eA-osA" secondAttribute="bottom" constant="14" id="8t9-qX-RcI"/>
                             <constraint firstAttribute="bottom" secondItem="ZYS-2e-Cb7" secondAttribute="bottom" constant="11" id="Btt-v2-ply"/>
                             <constraint firstItem="ZYS-2e-Cb7" firstAttribute="top" secondItem="FoE-eA-osA" secondAttribute="bottom" constant="14" id="HAr-N5-8aj"/>
                             <constraint firstAttribute="trailing" secondItem="ZYS-2e-Cb7" secondAttribute="trailing" constant="15" id="IWj-gH-1CP"/>
+                            <constraint firstItem="6gU-nM-pBU" firstAttribute="leading" secondItem="nyw-GV-52w" secondAttribute="leading" constant="15" id="YXs-au-soi"/>
                             <constraint firstItem="ZYS-2e-Cb7" firstAttribute="top" secondItem="FoE-eA-osA" secondAttribute="bottom" constant="14" id="asf-w9-erI"/>
                             <constraint firstItem="FoE-eA-osA" firstAttribute="top" secondItem="nyw-GV-52w" secondAttribute="top" id="knV-95-ASB"/>
                             <constraint firstItem="FoE-eA-osA" firstAttribute="leading" secondItem="nyw-GV-52w" secondAttribute="leading" id="lc8-My-hLh"/>
                             <constraint firstAttribute="trailing" secondItem="FoE-eA-osA" secondAttribute="trailing" id="mZx-EH-SsZ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="SettingsTable" destination="1TG-jR-JQM" id="ZOp-rb-mAC"/>
+                    </connections>
                 </viewController>
                 <customObject id="xdD-ye-rAe" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -308,7 +333,7 @@
         <!--Connection Split View Controller-->
         <scene sceneID="D9f-3d-dbz">
             <objects>
-                <viewController storyboardIdentifier="connectionDetail" id="SZN-Pp-4zV" customClass="ConnectionSplitViewController" customModule="SlackDesk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="connectionDetail" id="SZN-Pp-4zV" customClass="ConnectionSplitViewController" customModule="CollabApp" customModuleProvider="target" sceneMemberID="viewController">
                     <splitView key="view" arrangesAllSubviews="NO" dividerStyle="thin" vertical="YES" id="RmP-BO-pvK">
                         <rect key="frame" x="0.0" y="0.0" width="802" height="500"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -321,7 +346,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="201" height="500"/>
                                         <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Ocq-Zx-amO">
                                             <rect key="frame" x="0.0" y="0.0" width="201" height="500"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" selectionHighlightStyle="sourceList" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="24" rowSizeStyle="systemDefault" headerView="yQd-tP-pZG" viewBased="YES" floatsGroupRows="NO" id="rse-gS-GKz">
                                                     <rect key="frame" x="0.0" y="0.0" width="201" height="475"/>
@@ -488,7 +513,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="398" height="449"/>
                                                         <clipView key="contentView" drawsBackground="NO" id="qPw-Ie-JM9">
                                                             <rect key="frame" x="1" y="0.0" width="396" height="448"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <tableView verticalHuggingPriority="750" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="20" usesAutomaticRowHeights="YES" headerView="2ur-Ju-yqz" viewBased="YES" floatsGroupRows="NO" id="nqg-O6-Egs">
                                                                     <rect key="frame" x="0.0" y="0.0" width="396" height="423"/>
@@ -692,7 +717,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="201" height="500"/>
                                         <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="vB6-SW-6CU">
                                             <rect key="frame" x="0.0" y="0.0" width="201" height="500"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" enabled="NO" rowHeight="24" rowSizeStyle="systemDefault" headerView="org-v0-DPV" viewBased="YES" floatsGroupRows="NO" id="YBN-gV-wlK">
                                                     <rect key="frame" x="0.0" y="0.0" width="201" height="475"/>
@@ -833,7 +858,7 @@
         <!--View Controller-->
         <scene sceneID="qCC-G1-qeV">
             <objects>
-                <tabViewController id="axD-60-bAf" customClass="ViewController" customModule="SlackDesk" customModuleProvider="target" sceneMemberID="viewController">
+                <tabViewController id="axD-60-bAf" customClass="ViewController" customModule="CollabApp" customModuleProvider="target" sceneMemberID="viewController">
                     <viewControllerTransitionOptions key="transitionOptions" allowUserInteraction="YES"/>
                     <tabView key="tabView" type="noTabsNoBorder" id="Zuc-QD-H2k">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
@@ -855,8 +880,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSEveryone" width="128" height="128"/>
         <image name="NSLockLockedTemplate" width="10" height="14"/>
+        <image name="NSRemoveTemplate" width="11" height="11"/>
         <image name="NSStatusAvailable" width="16" height="16"/>
         <image name="NSStatusUnavailable" width="16" height="16"/>
         <image name="NSTouchBarUserTemplate" width="17" height="30"/>
@@ -864,6 +891,6 @@
         <image name="NSUserGuest" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gkW-SP-aCA"/>
+        <segue reference="JKd-w4-AVd"/>
     </inferredMetricsTieBreakers>
 </document>

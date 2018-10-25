@@ -20,7 +20,7 @@ class ChannelController: ClientAccesingControllerBase {
                     channel.setName(name)
                 }
                 
-                channel.setType(self.getChannelType(subJson))
+                channel.setType(ChannelController.getChannelType(subJson))
                 
                 channel.setId(subJson["id"].stringValue)
                 self.connection.addChannel(channel)
@@ -28,23 +28,6 @@ class ChannelController: ClientAccesingControllerBase {
             completion(true, error)
             
         }
-    }
-    
-    // Determine the channel type.
-    private func getChannelType(_ json: JSON) -> Int {
-        if (json["is_im"].boolValue) {
-            return Channel.directMessage
-        }
-        else if (json["is_group"].boolValue) {
-            if (json["is_private"].boolValue) {
-                return Channel.userGroup
-            }
-        }else if (json["is_channel"].boolValue) {
-            if (json["is_private"].boolValue) {
-                return Channel.lockedChannel
-            }
-        }
-        return Channel.regularChannel
     }
     
     public func getHistoryForChannel(channel: Channel, completion: @escaping(Bool, Error?) -> Void) {
@@ -92,6 +75,23 @@ class ChannelController: ClientAccesingControllerBase {
         }
         
         return fullMessage
+    }
+    
+    // Determine the channel type.
+    static func getChannelType(_ json: JSON) -> Int {
+        if (json["is_im"].boolValue) {
+            return Channel.directMessage
+        }
+        else if (json["is_group"].boolValue) {
+            if (json["is_private"].boolValue) {
+                return Channel.userGroup
+            }
+        }else if (json["is_channel"].boolValue) {
+            if (json["is_private"].boolValue) {
+                return Channel.lockedChannel
+            }
+        }
+        return Channel.regularChannel
     }
     
 }

@@ -31,19 +31,26 @@ class ConnectionSplitViewControllerChannels: NSObject, NSTableViewDataSource, NS
         }
         
         if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellId), owner: nil) as? NSTableCellView {
+            var text: String = ""
             
             if (channel.getType() == Channel.directMessage) {
                 do {
-                    try cell.textField?.stringValue = self.connection.findUserById(channel.getName()).getName()
+                    try text = self.connection.findUserById(channel.getName()).getName()
                 }
                 catch {
-                    // @todo Change this duplication.
-                    cell.textField?.stringValue = channel.getName()
+                    // Nothing to do, the rest of the call will take care of this.
                 }
             }
-            else {
-                cell.textField?.stringValue = channel.getName()
+                
+            if (text.isEmpty) {
+                text = channel.getName()
             }
+            
+            if (channel.hasUnreadMessage.value) {
+                text = "(NEW) " + text
+            }
+            
+            cell.textField?.stringValue = text
             
             return cell
         }

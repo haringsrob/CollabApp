@@ -1,7 +1,7 @@
 import XCTest
 import Mockingjay
 import SwiftyJSON
-@testable import SlackDesk
+@testable import CollabApp
 
 class UserListControllerTests: XCTestCase {
     
@@ -34,12 +34,12 @@ class UserListControllerTests: XCTestCase {
         userListController.updateUserList() {response, error in
             expectation.fulfill()
             
-            XCTAssertEqual(2, self.connection.getUsers().count)
-            XCTAssertEqual("Tarzan", self.connection.getUsers().first?.getName())
-            XCTAssertEqual("123", self.connection.getUsers().first?.getId())
+            XCTAssertEqual(2, self.connection.getUsers().value.count)
+            XCTAssertEqual("Tarzan", self.connection.getUsers().value.first?.getName())
+            XCTAssertEqual("123", self.connection.getUsers().value.first?.getId())
             
-            XCTAssertEqual("Jane", self.connection.getUsers().last?.getName())
-            XCTAssertEqual("987", self.connection.getUsers().last?.getId())
+            XCTAssertEqual("Jane", self.connection.getUsers().value.last?.getName())
+            XCTAssertEqual("987", self.connection.getUsers().value.last?.getId())
         }
         
         wait(for: [expectation], timeout: 10.0)

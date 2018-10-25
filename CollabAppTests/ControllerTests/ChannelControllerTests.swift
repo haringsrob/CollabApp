@@ -1,7 +1,7 @@
 import XCTest
 import Mockingjay
 import SwiftyJSON
-@testable import SlackDesk
+@testable import CollabApp
 
 class ChannelControllerTests: XCTestCase {
     
@@ -18,11 +18,13 @@ class ChannelControllerTests: XCTestCase {
             "channels": [
                 [
                     "id": "GC3F5A953",
-                    "name":"mpdm-tom--info707--yves.sterckx-1",
+                    "name":"GC3F5A953",
+                    "name_normalized": "mpdm-u1--u2--u3",
                 ],
                 [
                     "id": "secondchannel",
                     "name":"SecondChannel Name",
+                    "name_normalized":"SecondChannel Name",
                 ]
             ]
         ]
@@ -34,12 +36,12 @@ class ChannelControllerTests: XCTestCase {
         channelController.updateChannelList() {response, error in
             expectation.fulfill()
             
-            XCTAssertEqual(2, self.connection.getChannels().count)
-            XCTAssertEqual("mpdm-tom--info707--yves.sterckx-1", self.connection.getChannels().first?.getName())
-            XCTAssertEqual("GC3F5A953", self.connection.getChannels().first?.getId())
+            XCTAssertEqual(2, self.connection.getChannels().value.count)
+            XCTAssertEqual("u1, u2, u3", self.connection.getChannels().value.first?.getName())
+            XCTAssertEqual("GC3F5A953", self.connection.getChannels().value.first?.getId())
             
-            XCTAssertEqual("SecondChannel Name", self.connection.getChannels().last?.getName())
-            XCTAssertEqual("secondchannel", self.connection.getChannels().last?.getId())
+            XCTAssertEqual("SecondChannel Name", self.connection.getChannels().value.last?.getName())
+            XCTAssertEqual("secondchannel", self.connection.getChannels().value.last?.getId())
         }
         
         wait(for: [expectation], timeout: 10.0)
@@ -65,10 +67,10 @@ class ChannelControllerTests: XCTestCase {
         let channelController:ChannelController = ChannelController(connection: self.connection)
         channelController.getHistoryForChannel(channel: channel)  {response, error in
             expectation.fulfill()
-            XCTAssertEqual(1, channel.getMessages().count)
-            XCTAssertEqual("U012AB3CDE", channel.getMessages().first?.getUserId())
-            XCTAssertEqual("I find you punny and would like to smell your nose letter", channel.getMessages().first?.getBody())
-            XCTAssertEqual("1512085950.000216", channel.getMessages().first?.getTimeStamp())
+            XCTAssertEqual(1, channel.getMessages().value.count)
+            XCTAssertEqual("U012AB3CDE", channel.getMessages().value.first?.getUserId())
+            XCTAssertEqual("I find you punny and would like to smell your nose letter", channel.getMessages().value.first?.getBody())
+            XCTAssertEqual("1512085950.000216", channel.getMessages().value.first?.getTimeStamp())
         }
         
         wait(for: [expectation], timeout: 10.0)

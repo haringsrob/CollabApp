@@ -1,7 +1,7 @@
 import XCTest
 import Mockingjay
 import SwiftyJSON
-@testable import SlackDesk
+@testable import CollabApp
 
 class SlackWebSocketClientTests: XCTestCase {
     

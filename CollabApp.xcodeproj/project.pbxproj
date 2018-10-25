@@ -14,6 +14,9 @@
 		D41E88B22180BD2A00CED32F /* ConnectionSplitViewControllerChannels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41E88B12180BD2A00CED32F /* ConnectionSplitViewControllerChannels.swift */; };
 		D41E88B42180BD4000CED32F /* ConnectionSplitViewControllerMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41E88B32180BD4000CED32F /* ConnectionSplitViewControllerMessages.swift */; };
 		D427B41721748A7A0070F96B /* ConnectionSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D427B41621748A7A0070F96B /* ConnectionSplitViewController.swift */; };
+		D42EF6FE2181D9EC00D2B302 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42EF6FD2181D9EC00D2B302 /* SettingsViewController.swift */; };
+		D42EF7012181EA5A00D2B302 /* SettingsException.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42EF7002181EA5A00D2B302 /* SettingsException.swift */; };
+		D42EF7042181F39900D2B302 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42EF7032181F39900D2B302 /* NotificationManager.swift */; };
 		D449DC2A217C8AF000CC59D4 /* ChannelException.swift in Sources */ = {isa = PBXBuildFile; fileRef = D449DC29217C8AF000CC59D4 /* ChannelException.swift */; };
 		D48B896521712F27004AD629 /* ChannelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B896421712F27004AD629 /* ChannelController.swift */; };
 		D48B897421712F35004AD629 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B896721712F35004AD629 /* Connection.swift */; };
@@ -25,7 +28,7 @@
 		D48B898A21712F41004AD629 /* SlackClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B898021712F40004AD629 /* SlackClientTests.swift */; };
 		D48B898B21712F41004AD629 /* ChannelControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B898221712F40004AD629 /* ChannelControllerTests.swift */; };
 		D48B898C21712F41004AD629 /* WebsocketMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B898321712F40004AD629 /* WebsocketMockTests.swift */; };
-		D48B898D21712F41004AD629 /* SlackDeskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B898421712F40004AD629 /* SlackDeskTests.swift */; };
+		D48B898D21712F41004AD629 /* CollabAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B898421712F40004AD629 /* CollabAppTests.swift */; };
 		D48B898E21712F41004AD629 /* ChannelModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B898621712F40004AD629 /* ChannelModelTests.swift */; };
 		D48B898F21712F41004AD629 /* MessageModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B898721712F40004AD629 /* MessageModelTests.swift */; };
 		D48B899021712F41004AD629 /* ConnectionModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B898821712F40004AD629 /* ConnectionModelTests.swift */; };
@@ -41,7 +44,7 @@
 		D4BFE71B21712D1A001945E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BFE71A21712D1A001945E2 /* ViewController.swift */; };
 		D4BFE71D21712D1B001945E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4BFE71C21712D1B001945E2 /* Assets.xcassets */; };
 		D4BFE72021712D1B001945E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4BFE71E21712D1B001945E2 /* Main.storyboard */; };
-		D4BFE73721712D1B001945E2 /* SlackDeskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BFE73621712D1B001945E2 /* SlackDeskUITests.swift */; };
+		D4BFE73721712D1B001945E2 /* CollabAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BFE73621712D1B001945E2 /* CollabAppUITests.swift */; };
 		D4F88AC32171CF5300A5D094 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F88AC02171CF1800A5D094 /* NetworkExtension.framework */; };
 		D4F88AC72171CF5700A5D094 /* Pods_SlackDesk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D81D157E1414BF1AA7E648E5 /* Pods_SlackDesk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -90,6 +93,9 @@
 		D41E88B12180BD2A00CED32F /* ConnectionSplitViewControllerChannels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionSplitViewControllerChannels.swift; sourceTree = "<group>"; };
 		D41E88B32180BD4000CED32F /* ConnectionSplitViewControllerMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionSplitViewControllerMessages.swift; sourceTree = "<group>"; };
 		D427B41621748A7A0070F96B /* ConnectionSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionSplitViewController.swift; sourceTree = "<group>"; };
+		D42EF6FD2181D9EC00D2B302 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		D42EF7002181EA5A00D2B302 /* SettingsException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsException.swift; sourceTree = "<group>"; };
+		D42EF7032181F39900D2B302 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		D449DC29217C8AF000CC59D4 /* ChannelException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelException.swift; sourceTree = "<group>"; };
 		D48B896421712F27004AD629 /* ChannelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelController.swift; sourceTree = "<group>"; };
 		D48B896721712F35004AD629 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
@@ -101,7 +107,7 @@
 		D48B898021712F40004AD629 /* SlackClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlackClientTests.swift; sourceTree = "<group>"; };
 		D48B898221712F40004AD629 /* ChannelControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelControllerTests.swift; sourceTree = "<group>"; };
 		D48B898321712F40004AD629 /* WebsocketMockTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsocketMockTests.swift; sourceTree = "<group>"; };
-		D48B898421712F40004AD629 /* SlackDeskTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlackDeskTests.swift; sourceTree = "<group>"; };
+		D48B898421712F40004AD629 /* CollabAppTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabAppTests.swift; sourceTree = "<group>"; };
 		D48B898621712F40004AD629 /* ChannelModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelModelTests.swift; sourceTree = "<group>"; };
 		D48B898721712F40004AD629 /* MessageModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageModelTests.swift; sourceTree = "<group>"; };
 		D48B898821712F40004AD629 /* ConnectionModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionModelTests.swift; sourceTree = "<group>"; };
@@ -122,10 +128,10 @@
 		D4BFE72721712D1B001945E2 /* CollabAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CollabAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BFE72D21712D1B001945E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4BFE73221712D1B001945E2 /* CollabAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CollabAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D4BFE73621712D1B001945E2 /* SlackDeskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackDeskUITests.swift; sourceTree = "<group>"; };
+		D4BFE73621712D1B001945E2 /* CollabAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollabAppUITests.swift; sourceTree = "<group>"; };
 		D4BFE73821712D1B001945E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4F88AC02171CF1800A5D094 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
-		D4F88AC22171CF1800A5D094 /* SlackDesk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SlackDesk.entitlements; sourceTree = "<group>"; };
+		D4F88AC22171CF1800A5D094 /* CollabApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CollabApp.entitlements; sourceTree = "<group>"; };
 		D81D157E1414BF1AA7E648E5 /* Pods_SlackDesk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SlackDesk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -189,8 +195,17 @@
 				D41E88AF2180BD1100CED32F /* ConnectionSplitViewControllerUsers.swift */,
 				D41E88B12180BD2A00CED32F /* ConnectionSplitViewControllerChannels.swift */,
 				D41E88B32180BD4000CED32F /* ConnectionSplitViewControllerMessages.swift */,
+				D42EF6FD2181D9EC00D2B302 /* SettingsViewController.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		D42EF6FF2181EA2900D2B302 /* Exception */ = {
+			isa = PBXGroup;
+			children = (
+				D42EF7002181EA5A00D2B302 /* SettingsException.swift */,
+			);
+			path = Exception;
 			sourceTree = "<group>";
 		};
 		D449DC28217C8AD100CC59D4 /* Exception */ = {
@@ -204,10 +219,12 @@
 		D48B896321712F27004AD629 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D42EF6FF2181EA2900D2B302 /* Exception */,
 				D48B896421712F27004AD629 /* ChannelController.swift */,
 				D48B899421713A4F004AD629 /* UserListController.swift */,
 				D48B8998217143E9004AD629 /* ClientAccesingControllerBase.swift */,
 				D48B899A217146DA004AD629 /* SettingsController.swift */,
+				D42EF7032181F39900D2B302 /* NotificationManager.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -267,9 +284,9 @@
 		D4BFE70C21712D1A001945E2 = {
 			isa = PBXGroup;
 			children = (
-				D4BFE71721712D1A001945E2 /* SlackDesk */,
-				D4BFE72A21712D1B001945E2 /* SlackDeskTests */,
-				D4BFE73521712D1B001945E2 /* SlackDeskUITests */,
+				D4BFE71721712D1A001945E2 /* CollabApp */,
+				D4BFE72A21712D1B001945E2 /* CollabAppTests */,
+				D4BFE73521712D1B001945E2 /* CollabAppUITests */,
 				D4BFE71621712D1A001945E2 /* Products */,
 				95074C61AD155DB4F5A57D06 /* Pods */,
 				18908BD5D8FA7E75FB2BFB7A /* Frameworks */,
@@ -286,11 +303,11 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D4BFE71721712D1A001945E2 /* SlackDesk */ = {
+		D4BFE71721712D1A001945E2 /* CollabApp */ = {
 			isa = PBXGroup;
 			children = (
 				D427B41121747CC50070F96B /* Views */,
-				D4F88AC22171CF1800A5D094 /* SlackDesk.entitlements */,
+				D4F88AC22171CF1800A5D094 /* CollabApp.entitlements */,
 				D48B896621712F35004AD629 /* Model */,
 				D48B897221712F35004AD629 /* Services */,
 				D48B896321712F27004AD629 /* Controller */,
@@ -300,29 +317,29 @@
 				D4BFE71E21712D1B001945E2 /* Main.storyboard */,
 				D4BFE72121712D1B001945E2 /* Info.plist */,
 			);
-			path = SlackDesk;
+			path = CollabApp;
 			sourceTree = "<group>";
 		};
-		D4BFE72A21712D1B001945E2 /* SlackDeskTests */ = {
+		D4BFE72A21712D1B001945E2 /* CollabAppTests */ = {
 			isa = PBXGroup;
 			children = (
 				D48B898121712F40004AD629 /* ControllerTests */,
 				D48B898521712F40004AD629 /* ModelTests */,
 				D48B897F21712F40004AD629 /* ServicesTests */,
-				D48B898421712F40004AD629 /* SlackDeskTests.swift */,
+				D48B898421712F40004AD629 /* CollabAppTests.swift */,
 				D48B898321712F40004AD629 /* WebsocketMockTests.swift */,
 				D4BFE72D21712D1B001945E2 /* Info.plist */,
 			);
-			path = SlackDeskTests;
+			path = CollabAppTests;
 			sourceTree = "<group>";
 		};
-		D4BFE73521712D1B001945E2 /* SlackDeskUITests */ = {
+		D4BFE73521712D1B001945E2 /* CollabAppUITests */ = {
 			isa = PBXGroup;
 			children = (
-				D4BFE73621712D1B001945E2 /* SlackDeskUITests.swift */,
+				D4BFE73621712D1B001945E2 /* CollabAppUITests.swift */,
 				D4BFE73821712D1B001945E2 /* Info.plist */,
 			);
-			path = SlackDeskUITests;
+			path = CollabAppUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -623,6 +640,8 @@
 				D48B897E21712F35004AD629 /* SlackClient.swift in Sources */,
 				D449DC2A217C8AF000CC59D4 /* ChannelException.swift in Sources */,
 				D48B897621712F35004AD629 /* Channel.swift in Sources */,
+				D42EF6FE2181D9EC00D2B302 /* SettingsViewController.swift in Sources */,
+				D42EF7012181EA5A00D2B302 /* SettingsException.swift in Sources */,
 				D48B899B217146DA004AD629 /* SettingsController.swift in Sources */,
 				D48B897821712F35004AD629 /* baseIdNameModel.swift in Sources */,
 				D41E88B42180BD4000CED32F /* ConnectionSplitViewControllerMessages.swift in Sources */,
@@ -634,6 +653,7 @@
 				D41E88B22180BD2A00CED32F /* ConnectionSplitViewControllerChannels.swift in Sources */,
 				D48B897421712F35004AD629 /* Connection.swift in Sources */,
 				D48B897721712F35004AD629 /* User.swift in Sources */,
+				D42EF7042181F39900D2B302 /* NotificationManager.swift in Sources */,
 				D427B41721748A7A0070F96B /* ConnectionSplitViewController.swift in Sources */,
 				D48B899F21715743004AD629 /* SlackWebSocketClient.swift in Sources */,
 			);
@@ -644,7 +664,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D48B899D21714A47004AD629 /* SettingsControllerTests.swift in Sources */,
-				D48B898D21712F41004AD629 /* SlackDeskTests.swift in Sources */,
+				D48B898D21712F41004AD629 /* CollabAppTests.swift in Sources */,
 				D48B899021712F41004AD629 /* ConnectionModelTests.swift in Sources */,
 				D48B898E21712F41004AD629 /* ChannelModelTests.swift in Sources */,
 				D48B899121712F41004AD629 /* UserModelTests.swift in Sources */,
@@ -661,7 +681,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4BFE73721712D1B001945E2 /* SlackDeskUITests.swift in Sources */,
+				D4BFE73721712D1B001945E2 /* CollabAppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -820,7 +840,7 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 24KGSSH7GA;
-				INFOPLIST_FILE = SlackDesk/Info.plist;
+				INFOPLIST_FILE = CollabApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -838,12 +858,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = SlackDesk/SlackDesk.entitlements;
+				CODE_SIGN_ENTITLEMENTS = CollabApp/CollabApp.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 24KGSSH7GA;
-				INFOPLIST_FILE = SlackDesk/Info.plist;
+				INFOPLIST_FILE = CollabApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -866,13 +886,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 24KGSSH7GA;
-				INFOPLIST_FILE = SlackDeskTests/Info.plist;
+				INFOPLIST_FILE = CollabAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = haringsbe.SlackDeskTests;
+				PRODUCT_BUNDLE_IDENTIFIER = haringsbe.CollabAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -891,13 +911,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 24KGSSH7GA;
-				INFOPLIST_FILE = SlackDeskTests/Info.plist;
+				INFOPLIST_FILE = CollabAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = haringsbe.SlackDeskTests;
+				PRODUCT_BUNDLE_IDENTIFIER = haringsbe.CollabAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -915,13 +935,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 24KGSSH7GA;
-				INFOPLIST_FILE = SlackDeskUITests/Info.plist;
+				INFOPLIST_FILE = CollabAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = haringsbe.SlackDeskUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = haringsbe.CollabAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -940,13 +960,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 24KGSSH7GA;
-				INFOPLIST_FILE = SlackDeskUITests/Info.plist;
+				INFOPLIST_FILE = CollabAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = haringsbe.SlackDeskUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = haringsbe.CollabAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

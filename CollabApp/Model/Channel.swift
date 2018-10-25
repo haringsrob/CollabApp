@@ -12,6 +12,7 @@ class Channel: baseIdNameModel {
     private var type: Int = Channel.directMessage
     private var messages:Variable<[Message]> = Variable([])
     public var messagesLoaded:Variable<Bool> = Variable(false)
+    public var hasUnreadMessage:Variable<Bool> = Variable(false)
 
     func isDirectMessageChannel() -> Bool {
         return self.isPrivate

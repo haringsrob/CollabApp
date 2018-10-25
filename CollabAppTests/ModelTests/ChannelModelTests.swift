@@ -1,5 +1,5 @@
 import XCTest
-@testable import SlackDesk
+@testable import CollabApp
 
 class ChannelModelTests: XCTestCase {
     
@@ -16,14 +16,14 @@ class ChannelModelTests: XCTestCase {
     func testMessagesInChannel() {
         let channel: Channel = Channel()
         
-        XCTAssertTrue(channel.getMessages().isEmpty);
+        XCTAssertTrue(channel.getMessages().value.isEmpty);
         
         let message = Message()
         channel.addMessage(message);
-        XCTAssertEqual(1, channel.getMessages().count)
+        XCTAssertEqual(1, channel.getMessages().value.count)
         
         channel.addMessage(message);
-        XCTAssertEqual(2, channel.getMessages().count)
+        XCTAssertEqual(2, channel.getMessages().value.count)
     }
     
 }

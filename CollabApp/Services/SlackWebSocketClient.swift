@@ -19,11 +19,15 @@ class SlackWebSocketClient: WebSocketDelegate {
     private var connectTimer:Timer!
     private var actionID:Int = 0
     
+    // This should at one point be taken out.
+    private var notificationManager: NotificationManager
+    
     public var isConnected:Variable<Bool> = Variable(false)
     
     init(connection: Connection) {
         self.connection = connection
         self.client = SlackClient(apiKey: self.connection.getKey())
+        self.notificationManager = NotificationManager(connection: connection)
     }
     
     public func startWebSocket() {
@@ -62,26 +66,54 @@ class SlackWebSocketClient: WebSocketDelegate {
     
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
         do {
-            let type = try JSON(data: text.data(using: .utf8, allowLossyConversion: false)!)
-            if let typevalue = type["type"].string {
+            let json = try JSON(data: text.data(using: .utf8, allowLossyConversion: false)!)
+            if let typevalue = json["type"].string {
                 switch typevalue {
                 case "message":
                     let message: Message = Message()
-                    message.setBody(type["text"].stringValue)
-                    message.setUserId(type["user"].stringValue)
-                    message.setTimeStamp(type["ts"].stringValue)
-                    try self.connection.findChannelById(type["channel"].stringValue).addMessage(message)
+                    message.setBody(json["text"].stringValue)
+                    message.setUserId(json["user"].stringValue)
+                    message.setTimeStamp(json["ts"].stringValue)
+                    
+                    let channel: Channel = try self.connection.findChannelById(json["channel"].stringValue)
+                    
+                    // Mark the channel as having unread.
+                    channel.hasUnreadMessage.value = true
+                    
+                    // We only add it if it already is loaded, otherwise, we wait for the history call.
+                    if (channel.getMessagesLoaded().value) {
+                        channel.addMessage(message)
+                    }
+                    
+                    // Notify.
+                    self.notificationManager.showNotificationForMessageAndChannel(message: message, channel: channel)
                     break;
                 case "channel_marked", "im_marked":
                     // @todo: Implement.
+                    // Currently we are not tracking unreads..
                     break;
                 case "channel_created":
-                    // @todo: New channel created.
+                    if json["channel"].null == nil {
+                        let channel:Channel = Channel()
+                        channel.setName(json["channel"]["name"].string!)
+                        channel.setId(json["channel"]["id"].string!)
+                        channel.setType(ChannelController.getChannelType(json["channel"]))
+                        
+                        // Mark the channel as having unread.
+                        channel.hasUnreadMessage.value = true
+                        
+                        self.connection.addChannel(channel)
+                        self.notificationManager.showNotificationForNewChannel(channel: channel)
+                    }
                     break;
-                case "presence_change":
-                    // @tood: User changed presence.
+                case "presence_change", "manual_presence_change":
+                    // @todo:
+                    // This is no longer possible and will require subscriptions. However, this might not
+                    // work performant for bigger channels.
+                    // Perhaps we could just requery the user list every X minutes.
                     break;
                 default:
+                    // The rest is not required. It is mostly pings.
                     break;
                 }
             }

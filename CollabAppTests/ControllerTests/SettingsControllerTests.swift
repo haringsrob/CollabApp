@@ -1,5 +1,5 @@
 import XCTest
-@testable import SlackDesk
+@testable import CollabApp
 
 class SettingsControllerTests: XCTestCase {
     

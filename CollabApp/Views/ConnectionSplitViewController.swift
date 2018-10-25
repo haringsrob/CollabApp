@@ -49,11 +49,29 @@ class ConnectionSplitViewController: NSSplitViewController {
             switch event {
             case .next(_):
                 self.ChannelList.reloadData()
+                
+                // When a channel has updated data mark it.
+                for channel in self.connection.getChannels().value {
+                    _ = channel.hasUnreadMessage.asObservable().subscribe() { event in
+                        switch event {
+                        case .next(_):
+                            // Reload the data and update the selection.
+                            let selectedRow = self.ChannelList.selectedRowIndexes
+                            self.ChannelList.reloadData()
+                            self.ChannelList.selectRowIndexes(selectedRow, byExtendingSelection: false)
+                            break;
+                        case .error(_): break
+                        case .completed: break
+                        }
+                    }
+                }
+                
                 break;
             case .error(_): break
             case .completed: break
             }
         }
+        
         let channelController:ChannelController = ChannelController(connection: self.connection)
         channelController.updateChannelList(completion: {_,_ in })
     }
@@ -84,6 +102,8 @@ class ConnectionSplitViewController: NSSplitViewController {
     // The channel has been changed.
     @IBAction func ChannelChanged(_ sender: Any) {
         let channel: Channel = self.connection.getChannels().value[ChannelList.selectedRow]
+        
+        channel.hasUnreadMessage.value = false
         
         // Do nothing if we select the same channel.
         if (channel.getId() == self.activeChannel?.getId()) {

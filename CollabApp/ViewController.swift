@@ -11,18 +11,9 @@ class ViewController: NSTabViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let connection:Connection = Connection()
-        connection.setKey("***REMOVED***")
-        connection.setName("Harings.be")
-        
-        let connection2:Connection = Connection()
-        connection2.setKey("***REMOVED***")
-        connection2.setName("Sevendays")
-        
-        self.connections.append(connection)
-        self.connections.append(connection2)
+        let settingsController: SettingsController = SettingsController()
 
-        for connection in self.connections {
+        for connection in settingsController.getConnectionObjects() {
             let newItem: NSTabViewItem = NSTabViewItem(identifier: connection.getName())
             newItem.label = connection.getName()
             
@@ -41,9 +32,14 @@ class ViewController: NSTabViewController {
 
 }
 
+// @todo:
+// This function does all the work on message rendering. If there is one thing that can be improved
+// this would be it I guess.
 func replaceLinksAndGetAttributedString(_ text: String, connection: Connection) -> NSAttributedString {
+    // Replace emoji's. #priorities
     var emojiText = Smile.replaceAlias(string: text);
     
+    // Replace username references.
     emojiText = ("<@([A-Z]\\w+){1}(\\|.+)?>".r?.replaceAll(in: emojiText) { match in
         if match.group(at: 1) != nil {
             do {
@@ -56,6 +52,7 @@ func replaceLinksAndGetAttributedString(_ text: String, connection: Connection) 
         return nil
     })!
     
+    // Convert from markdown to attributed string.
     let down = Down(markdownString: emojiText)
     let InMutableAttributedString = try? down.toAttributedString()
     
@@ -67,6 +64,7 @@ func replaceLinksAndGetAttributedString(_ text: String, connection: Connection) 
     }
     
     // Fix the string to be system coloured.
+    // This is required for Mojave dark mode / light mode.
     attributedString.enumerateAttribute(NSAttributedString.Key.font, in: NSMakeRange(0, attributedString.length), options: NSAttributedString.EnumerationOptions(rawValue: 0)) { (value, range, stop) in
         let color:NSColor = NSColor(catalogName: "System", colorName: "textColor")!
         attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
