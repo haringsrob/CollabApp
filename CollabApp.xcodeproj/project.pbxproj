@@ -17,6 +17,7 @@
 		D42EF6FE2181D9EC00D2B302 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42EF6FD2181D9EC00D2B302 /* SettingsViewController.swift */; };
 		D42EF7012181EA5A00D2B302 /* SettingsException.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42EF7002181EA5A00D2B302 /* SettingsException.swift */; };
 		D42EF7042181F39900D2B302 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42EF7032181F39900D2B302 /* NotificationManager.swift */; };
+		D42EF7062182062E00D2B302 /* DragView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42EF7052182062E00D2B302 /* DragView.swift */; };
 		D449DC2A217C8AF000CC59D4 /* ChannelException.swift in Sources */ = {isa = PBXBuildFile; fileRef = D449DC29217C8AF000CC59D4 /* ChannelException.swift */; };
 		D48B896521712F27004AD629 /* ChannelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B896421712F27004AD629 /* ChannelController.swift */; };
 		D48B897421712F35004AD629 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B896721712F35004AD629 /* Connection.swift */; };
@@ -96,6 +97,7 @@
 		D42EF6FD2181D9EC00D2B302 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D42EF7002181EA5A00D2B302 /* SettingsException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsException.swift; sourceTree = "<group>"; };
 		D42EF7032181F39900D2B302 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		D42EF7052182062E00D2B302 /* DragView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragView.swift; sourceTree = "<group>"; };
 		D449DC29217C8AF000CC59D4 /* ChannelException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelException.swift; sourceTree = "<group>"; };
 		D48B896421712F27004AD629 /* ChannelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelController.swift; sourceTree = "<group>"; };
 		D48B896721712F35004AD629 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				D41E88B12180BD2A00CED32F /* ConnectionSplitViewControllerChannels.swift */,
 				D41E88B32180BD4000CED32F /* ConnectionSplitViewControllerMessages.swift */,
 				D42EF6FD2181D9EC00D2B302 /* SettingsViewController.swift */,
+				D42EF7052182062E00D2B302 /* DragView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -635,6 +638,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D42EF7062182062E00D2B302 /* DragView.swift in Sources */,
 				D41E88B02180BD1100CED32F /* ConnectionSplitViewControllerUsers.swift in Sources */,
 				D4BFE71B21712D1A001945E2 /* ViewController.swift in Sources */,
 				D48B897E21712F35004AD629 /* SlackClient.swift in Sources */,

@@ -12,11 +12,15 @@ class ConnectionSplitViewController: NSSplitViewController {
     private var channelsDeleData: ConnectionSplitViewControllerChannels?
     private var messagesDeleData: ConnectionSplitViewControllerMessages?
     private var usersDeleData: ConnectionSplitViewControllerUsers?
-
+    
     private var socket: SlackWebSocketClient!
     @IBOutlet var MessageBox: NSTextField!
     
     private var activeChannel:Channel?
+    
+    @IBOutlet var DragView: DragView!
+    @IBOutlet var DragViewLoader: NSProgressIndicator!
+    @IBOutlet var DragViewLabel: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +33,11 @@ class ConnectionSplitViewController: NSSplitViewController {
         
         self.UsersList.delegate = self.usersDeleData
         self.UsersList.dataSource = self.usersDeleData
+        
+        self.DragView.delegate = self
+        
+        self.DragViewLoader.isHidden = true
+        self.DragViewLabel.isHidden = true
         
         self.initializeChannels()
         self.initializeUsers()
@@ -159,4 +168,33 @@ class ConnectionSplitViewController: NSSplitViewController {
         self.sendMessageToActiveChannelAndClearInputField()
     }
     
+}
+
+// Drag and dropping.
+extension ConnectionSplitViewController: DragViewDelegate {
+    func dragView(didDragFileWith URL: NSURL) {
+        if (self.activeChannel == nil) {
+            let alert = NSAlert()
+            alert.messageText = "No active channel, select a channel before uploading files"
+            alert.alertStyle = NSAlert.Style.informational
+            alert.addButton(withTitle: "OK")
+            alert.runModal()
+        }
+        else {
+            self.DragViewLoader.isHidden = false
+            self.DragViewLoader.startAnimation(self)
+            let client: SlackClient = SlackClient.init(apiKey: self.connection.getKey())
+            client.uploadFile(file: URL, channel: self.activeChannel!){ response, error in
+                self.DragViewLoader.isHidden = true
+            }
+        }
+    }
+    
+    func fileEnter() {
+        self.DragViewLabel.isHidden = false
+    }
+    
+    func fileExit() {
+        self.DragViewLabel.isHidden = true
+    }
 }

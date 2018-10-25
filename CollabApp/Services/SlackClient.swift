@@ -20,12 +20,12 @@ class SlackClient {
     
     public func usersList(completion: @escaping (JSON, Error?) -> Void) {
         self.getRequest(method: "users.list", parameters: ["presence": "true"]).responseJSON { response in
-                switch response.result {
-                case .success:
-                    completion(JSON(response.result.value!)["members"],  nil)
-                case .failure(let error):
-                    completion(JSON("{}"), error)
-                }
+            switch response.result {
+            case .success:
+                completion(JSON(response.result.value!)["members"],  nil)
+            case .failure(let error):
+                completion(JSON("{}"), error)
+            }
         }
     }
     
@@ -34,13 +34,13 @@ class SlackClient {
             "types": "public_channel,private_channel,mpim,im",
             "limit": 1000,
             "exclude_archived": "true"
-        ]).responseJSON { response in
-            switch response.result {
+            ]).responseJSON { response in
+                switch response.result {
                 case .success:
                     completion(JSON(response.result.value!)["channels"],  nil)
                 case .failure(let error):
                     completion(JSON("{}"), error)
-            }
+                }
         }
     }
     
@@ -67,6 +67,25 @@ class SlackClient {
                 completion("", error)
             }
         }
+    }
+    
+    public func uploadFile(file: NSURL, channel: Channel, completion: @escaping(JSON, Error?) -> Void) {
+        let urlString: String = self.endpoint + "files.upload?token=" + self.apiKey + "&channels=" + channel.getId()
+        let fileUri: URL = file as URL
+        
+        Alamofire.upload(multipartFormData: { (data: MultipartFormData) in
+            data.append(fileUri, withName: "file")
+        }, to: urlString, encodingCompletion: { encodingResult in
+            switch encodingResult {
+            case .success(let upload, _, _):
+                upload.responseJSON { response in
+                    completion(JSON(response.result.value!),  nil)
+                }
+            case .failure(let encodingError):
+                completion("", encodingError)
+            }
+        }
+        )
     }
     
     private func getRequest(method: String, parameters:Parameters = [:]) -> DataRequest {

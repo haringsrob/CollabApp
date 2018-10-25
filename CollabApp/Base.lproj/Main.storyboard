@@ -643,12 +643,34 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </tableHeaderView>
                                                     </scrollView>
+                                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="W9T-lw-SQL" customClass="DragView" customModule="CollabApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="449"/>
+                                                        <subviews>
+                                                            <progressIndicator identifier="Loader" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="6CE-j6-dRL">
+                                                                <rect key="frame" x="183" y="208" width="32" height="32"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                            </progressIndicator>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q2o-my-Tk6">
+                                                                <rect key="frame" x="74" y="183" width="250" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Release to upload the file to this channel" id="WYA-GD-40V">
+                                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                        </subviews>
+                                                    </customView>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="W9T-lw-SQL" secondAttribute="trailing" id="0kc-Iu-tES"/>
                                                     <constraint firstAttribute="trailing" secondItem="vyy-CK-idg" secondAttribute="trailing" id="6tN-LJ-9YE"/>
+                                                    <constraint firstItem="W9T-lw-SQL" firstAttribute="top" secondItem="Jku-f7-pcn" secondAttribute="top" id="87F-GW-AwJ"/>
                                                     <constraint firstItem="vyy-CK-idg" firstAttribute="leading" secondItem="Jku-f7-pcn" secondAttribute="leading" id="DXB-Jr-Pg9"/>
                                                     <constraint firstItem="vyy-CK-idg" firstAttribute="top" secondItem="Jku-f7-pcn" secondAttribute="top" id="GPi-TM-B7A"/>
                                                     <constraint firstAttribute="bottom" secondItem="vyy-CK-idg" secondAttribute="bottom" id="PA5-En-9RB"/>
+                                                    <constraint firstAttribute="bottom" secondItem="W9T-lw-SQL" secondAttribute="bottom" id="jzW-hK-BJE"/>
+                                                    <constraint firstItem="W9T-lw-SQL" firstAttribute="leading" secondItem="Jku-f7-pcn" secondAttribute="leading" id="qkW-5u-EMb"/>
                                                 </constraints>
                                             </customView>
                                             <customView id="Bub-cj-fiq">
@@ -846,6 +868,9 @@
                     </splitView>
                     <connections>
                         <outlet property="ChannelList" destination="rse-gS-GKz" id="mWH-vk-gZg"/>
+                        <outlet property="DragView" destination="W9T-lw-SQL" id="94i-ns-GhI"/>
+                        <outlet property="DragViewLabel" destination="q2o-my-Tk6" id="tIu-S6-Bci"/>
+                        <outlet property="DragViewLoader" destination="6CE-j6-dRL" id="11Z-pV-dUf"/>
                         <outlet property="MessageBox" destination="h7a-do-QJe" id="s36-bQ-BSi"/>
                         <outlet property="Messages" destination="nqg-O6-Egs" id="JMl-60-zRB"/>
                         <outlet property="UsersList" destination="YBN-gV-wlK" id="kuy-vv-stO"/>
