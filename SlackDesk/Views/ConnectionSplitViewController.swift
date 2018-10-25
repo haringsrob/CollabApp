@@ -85,6 +85,11 @@ class ConnectionSplitViewController: NSSplitViewController {
     @IBAction func ChannelChanged(_ sender: Any) {
         let channel: Channel = self.connection.getChannels().value[ChannelList.selectedRow]
         
+        // Do nothing if we select the same channel.
+        if (channel.getId() == self.activeChannel?.getId()) {
+            return
+        }
+        
         self.messagesDeleData?.setChannel(channel: channel)
         self.activeChannel = channel
         

@@ -15,7 +15,12 @@ class ViewController: NSTabViewController {
         connection.setKey("***REMOVED***")
         connection.setName("Harings.be")
         
+        let connection2:Connection = Connection()
+        connection2.setKey("***REMOVED***")
+        connection2.setName("Sevendays")
+        
         self.connections.append(connection)
+        self.connections.append(connection2)
 
         for connection in self.connections {
             let newItem: NSTabViewItem = NSTabViewItem(identifier: connection.getName())

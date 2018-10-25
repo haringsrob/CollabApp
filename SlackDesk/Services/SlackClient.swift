@@ -33,6 +33,7 @@ class SlackClient {
         self.getRequest(method: "conversations.list", parameters: [
             "types": "public_channel,private_channel,mpim,im",
             "limit": 1000,
+            "exclude_archived": "true"
         ]).responseJSON { response in
             switch response.result {
                 case .success:
