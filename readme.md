@@ -61,7 +61,7 @@ However, the end goal is to implement every feature into collabApp
 
 ## Usage
 
-Download the [latest release](https://github.com/haringsrob/SlackDesk/raw/master/SlackDesk.zip) and copy it to your applications
+Download the [latest release](https://github.com/haringsrob/CollabApp/releases) and copy it to your applications
 folder.
 
 Then go and create [legacy tokens](https://api.slack.com/custom-integrations/legacy-tokens)
