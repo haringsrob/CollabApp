@@ -71,8 +71,8 @@ class SlackWebSocketClient: WebSocketDelegate {
                 switch typevalue {
                 case "message":
                     let message: Message = Message()
-                    message.setBody(json["text"].stringValue)
-                    message.setUserId(json["user"].stringValue)
+                    message.setBody(ChannelController.getTextForMessage(json))
+                    message.setUserId(ChannelController.getUserForMessage(json))
                     message.setTimeStamp(json["ts"].stringValue)
                     
                     let channel: Channel = try self.connection.findChannelById(json["channel"].stringValue)

@@ -35,8 +35,8 @@ class ChannelController: ClientAccesingControllerBase {
             // Has to be reversed.
             for (_,subJson):(String, JSON) in response.reversed() {
                 let message:Message = Message()
-                message.setBody(self.getTextForMessage(subJson))
-                message.setUserId(self.getUserForMessage(subJson))
+                message.setBody(ChannelController.getTextForMessage(subJson))
+                message.setUserId(ChannelController.getUserForMessage(subJson))
                 message.setTimeStamp(subJson["ts"].stringValue)
                 channel.addMessage(message)
             }
@@ -45,14 +45,14 @@ class ChannelController: ClientAccesingControllerBase {
         }
     }
     
-    private func getUserForMessage(_ JsonMessage: JSON) -> String {
+    public static func getUserForMessage(_ JsonMessage: JSON) -> String {
         if (JsonMessage["user"].stringValue.isEmpty) {
             return "(BOT) " + JsonMessage["bot_id"].stringValue
         }
         return JsonMessage["user"].stringValue
     }
     
-    private func getTextForMessage(_ JsonMessage: JSON) -> String {
+    public static func getTextForMessage(_ JsonMessage: JSON) -> String {
         var fullMessage:String = "";
         fullMessage += JsonMessage["text"].string!
         // Manage file. Duplicated in ConnectionWebSocketClient.swift
