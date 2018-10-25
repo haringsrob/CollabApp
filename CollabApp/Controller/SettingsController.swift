@@ -66,8 +66,7 @@ class SettingsController {
     }
     
     public func removeAllTokens() -> Void {
-        var connections: Array<String> = []
-        self.setConnectionTokens(connections: connections)
+        self.setConnectionTokens(connections: [])
     }
     
 }

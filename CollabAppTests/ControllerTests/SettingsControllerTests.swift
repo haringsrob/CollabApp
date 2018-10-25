@@ -9,13 +9,13 @@ class SettingsControllerTests: XCTestCase {
         UserDefaults.blankDefaultsWhile {
             XCTAssertEqual([""], self.settingsController.getConnectionTokens())
             
-            let settings: Array<String> = ["token-1", "token-2"]
+            let settings: Array<String> = ["token-1:token-1", "token-2:token-2"]
             
             self.settingsController.setConnectionTokens(connections: settings)
-            XCTAssertEqual(["token-1", "token-2"], self.settingsController.getConnectionTokens())
+            XCTAssertEqual(["token-1:token-1", "token-2:token-2"], self.settingsController.getConnectionTokens())
             
-            self.settingsController.addConnectionToken(token: "token-3")
-            XCTAssertEqual(["token-1", "token-2", "token-3"], self.settingsController.getConnectionTokens())
+            self.settingsController.addConnectionToken(token: "token-3", name: "token3")
+            XCTAssertEqual(["token-1:token-1", "token-2:token-2", "token3:token-3"], self.settingsController.getConnectionTokens())
         }
     }
 }

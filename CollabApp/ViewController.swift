@@ -13,6 +13,10 @@ class ViewController: NSTabViewController {
         
         let settingsController: SettingsController = SettingsController()
 
+        if (!settingsController.getConnectionObjects().isEmpty) {
+            removeTabViewItem(self.tabViewItems.first!)
+        }
+        
         for connection in settingsController.getConnectionObjects() {
             let newItem: NSTabViewItem = NSTabViewItem(identifier: connection.getName())
             newItem.label = connection.getName()
@@ -26,7 +30,6 @@ class ViewController: NSTabViewController {
 
     override var representedObject: Any? {
         didSet {
-        // Update the view, if already loaded.
         }
     }
 
