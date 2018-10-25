@@ -1,6 +1,0 @@
-framework module Regex {
-  umbrella header "CrossroadRegex-umbrella.h"
-
-  export *
-  module * { export * }
-}
