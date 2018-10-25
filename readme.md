@@ -2,7 +2,10 @@
 
 An alternative client for Slack written in swift. V2.
 
+Short demo:
 ![SlackDesk screenshot](Resources/collabapp.gif "SlackDesk demo")
+
+The app is adaptive to the MacOs color scheme (light/dark)
 
 ## Why?
 
