@@ -33,6 +33,7 @@ class ChannelController: ClientAccesingControllerBase {
                 message.setTimeStamp(subJson["ts"].stringValue)
                 channel.addMessage(message)
             }
+            channel.markMessagesLoaded()
             completion(true, error)
         }
     }

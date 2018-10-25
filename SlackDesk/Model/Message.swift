@@ -1,23 +1,17 @@
 import Foundation
 
-class Message: MessageProtocol {
+class Message {
     
     private var body:String = "";
     private var timeStamp:String = "";
     private var userId:String = "";
     
-    private var bodyAttributedString:NSAttributedString?
-
     public func setBody(_ body: String) -> Void {
         self.body = body;
     }
-    
-    public func getBody(connection: Connection) -> NSAttributedString {
-        if self.bodyAttributedString == nil {
-            self.bodyAttributedString = replaceLinksAndGetAttributedString(self.body, connection: connection)
-        }
-        
-        return self.bodyAttributedString!;
+
+    public func getBody() -> String {
+        return self.body;
     }
 
     public func setTimeStamp(_ timeStamp: String) -> Void {

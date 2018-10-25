@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-class Connection: ConnectionProtocol {
+class Connection {
     
     private var name:String = "";
     private var key:String = "";

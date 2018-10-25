@@ -13,7 +13,7 @@ class ViewController: NSTabViewController {
         
         let connection:Connection = Connection()
         connection.setKey("***REMOVED***")
-        connection.setName("Sevendays")
+        connection.setName("Harings.be")
         
         self.connections.append(connection)
 

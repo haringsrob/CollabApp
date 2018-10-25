@@ -1,11 +1,12 @@
 import Foundation
 import RxSwift
 
-class Channel: baseIdNameModel, channelProtocol {
+class Channel: baseIdNameModel {
     
     private var isPrivate: Bool = false;
     private var messages:Variable<[Message]> = Variable([])
-    
+    public var messagesLoaded:Variable<Bool> = Variable(false)
+
     func isDirectMessageChannel() -> Bool {
         return self.isPrivate
     }
@@ -20,6 +21,14 @@ class Channel: baseIdNameModel, channelProtocol {
     
     public func getMessages() -> Variable<[Message]> {
         return messages;
+    }
+    
+    public func markMessagesLoaded() -> Void {
+        self.messagesLoaded.value = true
+    }
+    
+    public func getMessagesLoaded() -> Variable<Bool> {
+        return self.messagesLoaded
     }
     
 }

@@ -1,6 +1,6 @@
 import Foundation
 
-class baseIdNameModel: baseIdNameModelProtocol {
+class baseIdNameModel {
     
     private var name:String = "";
     private var id:String = "";

@@ -28,7 +28,7 @@ class SlackWebSocketClient: WebSocketDelegate {
     
     public func startWebSocket() {
         self.client.getRTMconnectionUrl() { rtmUrl, error in
-            if (error == nil) {
+            if (error == nil && !rtmUrl.isEmpty) {
                 self.socket = WebSocket(url: URL(string: rtmUrl)!)
                 self.socket.delegate = self
                 self.socket.connect()
@@ -36,6 +36,9 @@ class SlackWebSocketClient: WebSocketDelegate {
                     self.connectTimer.invalidate()
                 }
                 self.startWebSocketPinger()
+            }
+            else {
+                self.attemptReconnect()
             }
         }
     }
@@ -46,6 +49,10 @@ class SlackWebSocketClient: WebSocketDelegate {
     
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
         self.isConnected.value = false
+        self.attemptReconnect()
+    }
+    
+    func attemptReconnect() {
         self.pingTimer.invalidate()
         self.connectTimer = Timer.scheduledTimer(withTimeInterval: 15, repeats: true) { [weak self] _ in
             // @todo: Show message about reconnect attempt.
