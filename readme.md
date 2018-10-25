@@ -1,11 +1,12 @@
 # CollabApp
+(Formerly SlackDesk)
 
 An alternative client for Slack written in swift. V2.
 
 Short demo:
 ![SlackDesk screenshot](Resources/collabapp.gif "SlackDesk demo")
 
-The app is adaptive to the MacOs color scheme (light/dark)
+The app is adaptive to the MacOs color scheme (light/dark) 💪
 
 ## Why?
 
@@ -18,7 +19,7 @@ language to develop a simpler client, natively for os x.
 The client is build with the vision of giving as much of the features, but to
 keep it from being distractive and resource heavy
 
-Memory usage (as per demo):
+LOW! 🙏 Memory usage (as per demo):
 
 ![SlackDesk memory screenshot](Resources/usage.png "SlackDesk resource screenshot")
 
@@ -37,11 +38,11 @@ Pull requests and bug reports are welcome!
 - Groups, private channels, public channels
 - User list with status
 - Links and markdown rendering of messages
-- Emoji rendering (most of them)
+- Emoji rendering (most of them) 💪
 - Live adding of channels via other clients
 - Notification of new messages (without control)
 - Links to files
-- Drag and drop file uploads
+- Drag and drop file uploads 🤳
 
 __What does not work__
 
@@ -75,16 +76,12 @@ If you would like to contribute, clone the repository.
 
 As this project is using CocoaPods, you should run `pod install` after cloning.
 
-After running `pod install` open the `SlackDesk.xcworkspace`
+After running `pod install` open the `collabapp.xcworkspace`
 
 All code goes thorough pull requests together with an issue explaining the
 motivation for the code.
 
 All help is welcome and much appreciated.
-
-The project has no coverage currently as this was more a POC, all new
-development should have coverage.
-
 
 ## Tests
 
