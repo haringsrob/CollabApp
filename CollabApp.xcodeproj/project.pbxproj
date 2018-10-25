@@ -113,15 +113,15 @@
 		D48B899C21714A47004AD629 /* SettingsControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsControllerTests.swift; sourceTree = "<group>"; };
 		D48B899E21715743004AD629 /* SlackWebSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackWebSocketClient.swift; sourceTree = "<group>"; };
 		D48B89A021715DCC004AD629 /* SlackWebSocketClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackWebSocketClientTests.swift; sourceTree = "<group>"; };
-		D4BFE71521712D1A001945E2 /* SlackDesk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlackDesk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4BFE71521712D1A001945E2 /* CollabApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollabApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BFE71821712D1A001945E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4BFE71A21712D1A001945E2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D4BFE71C21712D1B001945E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4BFE71F21712D1B001945E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D4BFE72121712D1B001945E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D4BFE72721712D1B001945E2 /* SlackDeskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlackDeskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4BFE72721712D1B001945E2 /* CollabAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CollabAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BFE72D21712D1B001945E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D4BFE73221712D1B001945E2 /* SlackDeskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlackDeskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4BFE73221712D1B001945E2 /* CollabAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CollabAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BFE73621712D1B001945E2 /* SlackDeskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackDeskUITests.swift; sourceTree = "<group>"; };
 		D4BFE73821712D1B001945E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4F88AC02171CF1800A5D094 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
@@ -279,9 +279,9 @@
 		D4BFE71621712D1A001945E2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D4BFE71521712D1A001945E2 /* SlackDesk.app */,
-				D4BFE72721712D1B001945E2 /* SlackDeskTests.xctest */,
-				D4BFE73221712D1B001945E2 /* SlackDeskUITests.xctest */,
+				D4BFE71521712D1A001945E2 /* CollabApp.app */,
+				D4BFE72721712D1B001945E2 /* CollabAppTests.xctest */,
+				D4BFE73221712D1B001945E2 /* CollabAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -328,9 +328,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D4BFE71421712D1A001945E2 /* SlackDesk */ = {
+		D4BFE71421712D1A001945E2 /* CollabApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D4BFE73B21712D1B001945E2 /* Build configuration list for PBXNativeTarget "SlackDesk" */;
+			buildConfigurationList = D4BFE73B21712D1B001945E2 /* Build configuration list for PBXNativeTarget "CollabApp" */;
 			buildPhases = (
 				B2796E9DA4970994E1130948 /* [CP] Check Pods Manifest.lock */,
 				D4BFE71121712D1A001945E2 /* Sources */,
@@ -343,14 +343,14 @@
 			);
 			dependencies = (
 			);
-			name = SlackDesk;
+			name = CollabApp;
 			productName = SlackDesk;
-			productReference = D4BFE71521712D1A001945E2 /* SlackDesk.app */;
+			productReference = D4BFE71521712D1A001945E2 /* CollabApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D4BFE72621712D1B001945E2 /* SlackDeskTests */ = {
+		D4BFE72621712D1B001945E2 /* CollabAppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D4BFE73E21712D1B001945E2 /* Build configuration list for PBXNativeTarget "SlackDeskTests" */;
+			buildConfigurationList = D4BFE73E21712D1B001945E2 /* Build configuration list for PBXNativeTarget "CollabAppTests" */;
 			buildPhases = (
 				82BA4FFC71B2561DA3D28147 /* [CP] Check Pods Manifest.lock */,
 				D4BFE72321712D1B001945E2 /* Sources */,
@@ -363,14 +363,14 @@
 			dependencies = (
 				D4BFE72921712D1B001945E2 /* PBXTargetDependency */,
 			);
-			name = SlackDeskTests;
+			name = CollabAppTests;
 			productName = SlackDeskTests;
-			productReference = D4BFE72721712D1B001945E2 /* SlackDeskTests.xctest */;
+			productReference = D4BFE72721712D1B001945E2 /* CollabAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D4BFE73121712D1B001945E2 /* SlackDeskUITests */ = {
+		D4BFE73121712D1B001945E2 /* CollabAppUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D4BFE74121712D1B001945E2 /* Build configuration list for PBXNativeTarget "SlackDeskUITests" */;
+			buildConfigurationList = D4BFE74121712D1B001945E2 /* Build configuration list for PBXNativeTarget "CollabAppUITests" */;
 			buildPhases = (
 				935B0EC608B779A9BB230715 /* [CP] Check Pods Manifest.lock */,
 				D4BFE72E21712D1B001945E2 /* Sources */,
@@ -383,9 +383,9 @@
 			dependencies = (
 				D4BFE73421712D1B001945E2 /* PBXTargetDependency */,
 			);
-			name = SlackDeskUITests;
+			name = CollabAppUITests;
 			productName = SlackDeskUITests;
-			productReference = D4BFE73221712D1B001945E2 /* SlackDeskUITests.xctest */;
+			productReference = D4BFE73221712D1B001945E2 /* CollabAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -416,7 +416,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D4BFE71021712D1A001945E2 /* Build configuration list for PBXProject "SlackDesk" */;
+			buildConfigurationList = D4BFE71021712D1A001945E2 /* Build configuration list for PBXProject "CollabApp" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -429,9 +429,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D4BFE71421712D1A001945E2 /* SlackDesk */,
-				D4BFE72621712D1B001945E2 /* SlackDeskTests */,
-				D4BFE73121712D1B001945E2 /* SlackDeskUITests */,
+				D4BFE71421712D1A001945E2 /* CollabApp */,
+				D4BFE72621712D1B001945E2 /* CollabAppTests */,
+				D4BFE73121712D1B001945E2 /* CollabAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -670,12 +670,12 @@
 /* Begin PBXTargetDependency section */
 		D4BFE72921712D1B001945E2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D4BFE71421712D1A001945E2 /* SlackDesk */;
+			target = D4BFE71421712D1A001945E2 /* CollabApp */;
 			targetProxy = D4BFE72821712D1B001945E2 /* PBXContainerItemProxy */;
 		};
 		D4BFE73421712D1B001945E2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D4BFE71421712D1A001945E2 /* SlackDesk */;
+			target = D4BFE71421712D1A001945E2 /* CollabApp */;
 			targetProxy = D4BFE73321712D1B001945E2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -825,7 +825,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = haringsbe.SlackDesk;
+				PRODUCT_BUNDLE_IDENTIFIER = haringsbe.collabApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -848,7 +848,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = haringsbe.SlackDesk;
+				PRODUCT_BUNDLE_IDENTIFIER = haringsbe.collabApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -876,7 +876,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SlackDesk.app/Contents/MacOS/SlackDesk";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CollabApp.app/Contents/MacOS/CollabApp";
 			};
 			name = Debug;
 		};
@@ -901,7 +901,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SlackDesk.app/Contents/MacOS/SlackDesk";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CollabApp.app/Contents/MacOS/CollabApp";
 			};
 			name = Release;
 		};
@@ -958,7 +958,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D4BFE71021712D1A001945E2 /* Build configuration list for PBXProject "SlackDesk" */ = {
+		D4BFE71021712D1A001945E2 /* Build configuration list for PBXProject "CollabApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D4BFE73921712D1B001945E2 /* Debug */,
@@ -967,7 +967,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		D4BFE73B21712D1B001945E2 /* Build configuration list for PBXNativeTarget "SlackDesk" */ = {
+		D4BFE73B21712D1B001945E2 /* Build configuration list for PBXNativeTarget "CollabApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D4BFE73C21712D1B001945E2 /* Debug */,
@@ -976,7 +976,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		D4BFE73E21712D1B001945E2 /* Build configuration list for PBXNativeTarget "SlackDeskTests" */ = {
+		D4BFE73E21712D1B001945E2 /* Build configuration list for PBXNativeTarget "CollabAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D4BFE73F21712D1B001945E2 /* Debug */,
@@ -985,7 +985,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		D4BFE74121712D1B001945E2 /* Build configuration list for PBXNativeTarget "SlackDeskUITests" */ = {
+		D4BFE74121712D1B001945E2 /* Build configuration list for PBXNativeTarget "CollabAppUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D4BFE74221712D1B001945E2 /* Debug */,
