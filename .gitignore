@@ -1,6 +1,7 @@
 .idea
 Pods
 .DS_Store
+*.xcworkspace
 
 ## Various settings
 *.pbxuser
