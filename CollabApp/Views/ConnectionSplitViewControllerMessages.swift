@@ -33,7 +33,7 @@ class ConnectionSplitViewControllerMessages: NSObject, NSTableViewDataSource, NS
         
         if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as? NSTableCellView {
             if tableColumn == tableView.tableColumns[1] {
-                cell.textField?.attributedStringValue = replaceLinksAndGetAttributedString(item.getBody(), connection: self.connection)
+                cell.textField?.attributedStringValue = replaceLinksAndGetAttributedString(item.getBody().value, connection: self.connection)
             }
             else {
                 do {

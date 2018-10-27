@@ -13,6 +13,7 @@ class Channel: baseIdNameModel {
     private var messages:Variable<[Message]> = Variable([])
     public var messagesLoaded:Variable<Bool> = Variable(false)
     public var hasUnreadMessage:Variable<Bool> = Variable(false)
+    public var hasUpdatedMessage:Variable<Bool> = Variable(false)
 
     func isDirectMessageChannel() -> Bool {
         return self.isPrivate
@@ -44,5 +45,17 @@ class Channel: baseIdNameModel {
 
     public func getType() -> Int {
         return self.type
+    }
+    
+    public func findMessageByTs(_ ts: String) throws -> Message {
+        guard let message = self.messages.value.first(where: { $0.getTimeStamp() == ts }) else {
+            throw ChannelException.messageWithTsNotFound(ts: ts)
+        }
+        
+        return message
+    }
+    
+    public func deleteMessageByTs(_ ts: String) -> Void {
+        self.messages.value = self.messages.value.filter() { $0.getTimeStamp() != ts }
     }
 }

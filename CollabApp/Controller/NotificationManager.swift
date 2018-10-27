@@ -12,7 +12,7 @@ class NotificationManager {
     }
     
     public func showNotificationForMessageAndChannel(message: Message, channel: Channel) -> Void {
-        self.showNotificationWithTitleAndBody("New message in " + channel.getName(),message.getBody())
+        self.showNotificationWithTitleAndBody("New message in " + channel.getName(),message.getBody().value)
     }
     
     public func showNotificationForNewChannel(channel: Channel) -> Void {

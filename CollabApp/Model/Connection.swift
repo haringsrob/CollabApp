@@ -55,4 +55,5 @@ class Connection {
         
         return user
     }
+    
 }

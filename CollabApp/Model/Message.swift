@@ -1,16 +1,17 @@
 import Foundation
+import RxSwift
 
 class Message {
     
-    private var body:String = "";
+    private var body:Variable<String> = Variable("");
     private var timeStamp:String = "";
     private var userId:String = "";
     
     public func setBody(_ body: String) -> Void {
-        self.body = body;
+        self.body.value = body;
     }
 
-    public func getBody() -> String {
+    public func getBody() -> Variable<String> {
         return self.body;
     }
 

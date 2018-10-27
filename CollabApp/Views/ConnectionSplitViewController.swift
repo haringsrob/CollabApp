@@ -145,17 +145,17 @@ class ConnectionSplitViewController: NSSplitViewController {
     }
     
     private func startMessageObserver(_ channel: Channel) {
-        _ = channel.getMessages().asObservable().subscribe() { event in
-            switch event {
-            case .next(_):
+        // When a single message has been updated.
+        _ = channel.hasUpdatedMessage.asObservable().subscribe(onNext: { (value) in
+            if (channel.hasUpdatedMessage.value) {
                 self.Messages.reloadData()
-                self.Messages.scrollRowToVisible(self.Messages.numberOfRows - 1)
-                break;
-            case .error(_): break
-            case .completed:
-                break
             }
-        }
+        })
+        // When messages have been removed or added.
+        _ = channel.getMessages().asObservable().subscribe(onNext: { (value) in
+            self.Messages.reloadData()
+            self.Messages.scrollRowToVisible(self.Messages.numberOfRows - 1)
+        })
     }
     
     // A message has been send by pressing "Enter".

@@ -53,6 +53,9 @@ class ChannelController: ClientAccesingControllerBase {
     }
     
     public static func getTextForMessage(_ JsonMessage: JSON) -> String {
+        if (!JsonMessage["text"].exists()) {
+            return ""
+        }
         var fullMessage:String = "";
         fullMessage += JsonMessage["text"].string!
         // Manage file. Duplicated in ConnectionWebSocketClient.swift

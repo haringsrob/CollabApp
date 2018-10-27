@@ -70,23 +70,41 @@ class SlackWebSocketClient: WebSocketDelegate {
             if let typevalue = json["type"].string {
                 switch typevalue {
                 case "message":
-                    let message: Message = Message()
-                    message.setBody(ChannelController.getTextForMessage(json))
-                    message.setUserId(ChannelController.getUserForMessage(json))
-                    message.setTimeStamp(json["ts"].stringValue)
-                    
+                    // Get the channel we are acting on.
                     let channel: Channel = try self.connection.findChannelById(json["channel"].stringValue)
                     
-                    // Mark the channel as having unread.
-                    channel.hasUnreadMessage.value = true
+                    // Get the subtype of the message.
+                    let subtype: String = json["subtype"].stringValue
                     
-                    // We only add it if it already is loaded, otherwise, we wait for the history call.
-                    if (channel.getMessagesLoaded().value) {
-                        channel.addMessage(message)
+                    switch subtype {
+                    case "message_deleted":
+                        channel.deleteMessageByTs(json["previous_message"]["ts"].stringValue)
+                        break;
+                    case "message_changed":
+                        let message: Message = try channel.findMessageByTs(json["previous_message"]["ts"].stringValue)
+                        message.setBody(ChannelController.getTextForMessage(json["message"]))
+                        channel.hasUpdatedMessage.value = true
+                        break;
+                    default:
+                        // By default we create new messages.
+                        let message: Message = Message()
+                        
+                        message.setBody(ChannelController.getTextForMessage(json))
+                        message.setUserId(ChannelController.getUserForMessage(json))
+                        message.setTimeStamp(json["ts"].stringValue)
+                        
+                        // Mark the channel as having unread.
+                        channel.hasUnreadMessage.value = true
+                        
+                        // We only add it if it already is loaded, otherwise, we wait for the history call.
+                        if (channel.getMessagesLoaded().value) {
+                            channel.addMessage(message)
+                        }
+                        
+                        // Notify.
+                        self.notificationManager.showNotificationForMessageAndChannel(message: message, channel: channel)
+                        break;
                     }
-                    
-                    // Notify.
-                    self.notificationManager.showNotificationForMessageAndChannel(message: message, channel: channel)
                     break;
                 case "channel_marked", "im_marked":
                     // @todo: Implement.
@@ -129,11 +147,11 @@ class SlackWebSocketClient: WebSocketDelegate {
             "type": "message",
             "channel":channel.getId(),
             "text": message
-            ]
+        ]
         
         let jsonData = try? JSONSerialization.data(withJSONObject: data, options: [])
         let jsonString = String(data: jsonData!, encoding: .utf8)
-        self.socket.write(string: jsonString!) {
+        self.socket?.write(string: jsonString!) {
             let messageObject: Message = Message()
             messageObject.setBody(message)
             messageObject.setUserId("You")
