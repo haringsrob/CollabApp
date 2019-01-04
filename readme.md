@@ -1,3 +1,7 @@
+**Inactive** as Slack does not allow just any workspace to create legacy tokens anymore, there is not much of a point on continueing development (for me at least). I might pick it back up once slack might release some more flexible (non app) authentication methods. However I am not expecting anyting like this soon.
+
+If you want to continue development. Feel free to create merge requests, I will review and approve, or give maintainership.
+
 # CollabApp
 (Formerly SlackDesk)
 
